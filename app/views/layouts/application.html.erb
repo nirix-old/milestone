@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Milestone</title>
+		<%= stylesheet_link_tag "application", media: "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div class="header">
+			<h1></h1>
+		</div>
+		<div id="page">
+		<%= yield %>
+		</div>
+		<div class="footer">
+			<%=raw t(:copyright) %>
+		</div>
+	</body>
+</html>
