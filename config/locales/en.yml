@@ -3,3 +3,8 @@
 
 en:
   copyright: "Powered by Milestone, &copy; 2013"
+
+  activerecord:
+    attributes:
+      user:
+        password_digest: Password

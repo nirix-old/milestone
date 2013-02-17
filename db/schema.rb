@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216215447) do
+ActiveRecord::Schema.define(:version => 20130217054832) do
 
   create_table "projects", :force => true do |t|
     t.string "name",        :null => false
@@ -20,5 +20,15 @@ ActiveRecord::Schema.define(:version => 20130216215447) do
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string   "username",                       :null => false
+    t.string   "password_digest",                :null => false
+    t.string   "email",                          :null => false
+    t.string   "name",                           :null => false
+    t.integer  "group_id",        :default => 3, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
 
 end
