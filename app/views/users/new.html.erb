@@ -3,33 +3,35 @@
 		<h2 class="page-title"><%=t :register %></h2>
 		<%=form_for @user, url: '/register' do |f| %>
 			<%=show_errors_for @user %>
-			<div class="control-group<%= if @user.errors[:username].count > 0 then ' error' end %>">
-				<%=f.label :username, class: 'control-label' %>
-				<div class="controls">
-					<%=f.text_field :username %>
+			<div class="form-horizontal box">
+				<div class="control-group<%= if @user.errors[:username].count > 0 then ' error' end %>">
+					<%=f.label :username, class: 'control-label' %>
+					<div class="controls">
+						<%=f.text_field :username %>
+					</div>
 				</div>
-			</div>
-			<div class="control-group<%= if @user.errors[:name].count > 0 then ' error' end %>">
-				<%=f.label :name, class: 'control-label' %>
-				<div class="controls">
-					<%=f.text_field :name %>
+				<div class="control-group<%= if @user.errors[:name].count > 0 then ' error' end %>">
+					<%=f.label :name, class: 'control-label' %>
+					<div class="controls">
+						<%=f.text_field :name %>
+					</div>
 				</div>
-			</div>
-			<div class="control-group<%= if @user.errors[:password_digest].count > 0 or @user.errors[:password_confirmation].count > 0 then ' error' end %>">
-				<%=f.label :password, class: 'control-label' %>
-				<div class="controls">
-					<%=f.password_field :password %>
-					<%=f.password_field :password_confirmation, placeholder: t(:confirm) %>
+				<div class="control-group<%= if @user.errors[:password_digest].count > 0 or @user.errors[:password_confirmation].count > 0 then ' error' end %>">
+					<%=f.label :password, class: 'control-label' %>
+					<div class="controls">
+						<%=f.password_field :password %>
+						<%=f.password_field :password_confirmation, placeholder: t(:confirm) %>
+					</div>
 				</div>
-			</div>
-			<div class="control-group<%= if @user.errors[:email].count > 0 then ' error' end %>">
-				<%=f.label :email, class: 'control-label' %>
-				<div class="controls">
-					<%=f.email_field :email %>
+				<div class="control-group<%= if @user.errors[:email].count > 0 then ' error' end %>">
+					<%=f.label :email, class: 'control-label' %>
+					<div class="controls">
+						<%=f.email_field :email %>
+					</div>
 				</div>
-			</div>
-			<div class="actions">
-				<%=f.submit t(:create_account), class: 'btn btn-success' %>
+				<div class="actions">
+					<%=f.submit t(:create_account), class: 'btn btn-success' %>
+				</div>
 			</div>
 		<% end %>
 	</div>
