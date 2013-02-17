@@ -17,33 +17,33 @@
 #
 
 ##
-# Users controller
+# Sessions controller
 #
-class UsersController < ApplicationController
+class SessionsController < ApplicationController
   ##
-  # Register form
+  # Login form
   #
   def new
-    @user = User.new
   end
 
   ##
-  # Create user
+  # Create session
   #
   def create
-    @user = User.new({
-      username: params[:user][:username],
-      password: params[:user][:password],
-      password_confirmation: params[:user][:password_confirmation],
-      email: params[:user][:email],
-      name: params[:user][:name]
-    })
-
-    if @user.save
-      flash[:success] = t(:account_successfully_created)
-      redirect_to '/login'
+    if user = User.where(username: params[:username]).first.try(:authenticate, params[:password])
+      session[:user_id] = user.id
+      redirect_to root_url
     else
+      @error = true
       render :new
     end
+  end
+
+  ##
+  # Destory sesion
+  #
+  def destroy
+    session.delete(:user_id) if session.key?(:user_id)
+    redirect_to root_url
   end
 end

@@ -17,6 +17,11 @@ en:
   # Forms
   create_account: "Create Account"
 
+  # Errors
+  errors:
+    invalid_username_or_password: "Invalid username and/or password"
+
+  # ActiveRecord
   activerecord:
     attributes:
       user:

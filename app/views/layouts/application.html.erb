@@ -10,6 +10,16 @@
 		<div class="header">
 			<div class="container">
 				<h1></h1>
+				<nav id="navbar">
+					<ul>
+					<% if logged_in? %>
+						<li><%=link_to t(:logout), logout_path %></li>
+					<% else %>
+						<li><%=link_to t(:login), login_path %></li>
+						<li><%=link_to t(:register), register_path %></li>
+					<% end %>
+					</ul>
+				</nav>
 			</div>
 		</div>
 		<div id="page">

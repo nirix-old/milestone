@@ -1,0 +1,29 @@
+<div class="register content">
+	<div class="span6 centered">
+		<h2 class="page-title"><%=t :login %></h2>
+		<%=form_tag '/login' do %>
+			<% if @error %>
+			<div class="alert alert-error">
+				<%=t 'errors.invalid_username_or_password' %>
+			</div>
+			<% end %>
+			<div class="form-horizontal box">
+				<div class="control-group">
+					<%=label_tag :username, t(:username), class: 'control-label' %>
+					<div class="controls">
+						<%=text_field_tag :username, '' %>
+					</div>
+				</div>
+				<div class="control-group">
+					<%=label_tag :password, t(:password), class: 'control-label' %>
+					<div class="controls">
+						<%=password_field_tag :password, '' %>
+					</div>
+				</div>
+				<div class="actions">
+					<%=submit_tag t(:login), class: 'btn btn-success' %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

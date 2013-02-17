@@ -1,6 +1,10 @@
 Milestone::Application.routes.draw do
+  get '/login' => "sessions#new"
+  post '/login' => "sessions#create"
   get '/register' => "users#new"
   post '/register' => "users#create"
+  match '/logout' => "sessions#destroy"
+
   root to: "projects#index"
   resources :projects
 
