@@ -4,6 +4,17 @@
 en:
   copyright: "Powered by Milestone, &copy; 2013"
   confirm: Confirm
+  projects: Projects
+
+  # Users
+  login: Login
+  logout: Logout
+  register: Register
+  username: Username
+  name: Name
+  password: Password
+
+  # Forms
   create_account: "Create Account"
 
   activerecord:
