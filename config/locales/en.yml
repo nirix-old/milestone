@@ -3,6 +3,8 @@
 
 en:
   copyright: "Powered by Milestone, &copy; 2013"
+  confirm: Confirm
+  create_account: "Create Account"
 
   activerecord:
     attributes:

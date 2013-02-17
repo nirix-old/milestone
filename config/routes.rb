@@ -1,4 +1,6 @@
 Milestone::Application.routes.draw do
+  get '/register' => "users#new"
+  post '/register' => "users#create"
   root to: "projects#index"
   resources :projects
 
