@@ -8,13 +8,19 @@
 	</head>
 	<body>
 		<div class="header">
-			<h1></h1>
+			<div class="container">
+				<h1></h1>
+			</div>
 		</div>
 		<div id="page">
-		<%= yield %>
+			<div class="container">
+				<%= yield %>
+			</div>
 		</div>
 		<div class="footer">
-			<%=raw t(:copyright) %>
+			<div class="container">
+				<%=raw t(:copyright) %>
+			</div>
 		</div>
 	</body>
 </html>
