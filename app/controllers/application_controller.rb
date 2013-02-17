@@ -16,6 +16,23 @@
 # along with Milestone. If not, see <http://www.gnu.org/licenses/>.
 #
 
+##
+# Application controller.
+#
 class ApplicationController < ActionController::Base
   protect_from_forgery
+
+  def current_user
+    if session.key?(:user_id) and user = User.find(session[:user_id])
+      @_current_user = user
+    else
+      @_current_user = User.new({ username: t(:guest), group_id: 3 })
+    end
+  end
+  helper_method :current_user
+
+  def logged_in?
+    session.key?(:user_id) and current_user.id > 0
+  end
+  helper_method :logged_in?
 end
