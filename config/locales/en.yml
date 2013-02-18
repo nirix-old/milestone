@@ -17,6 +17,9 @@ en:
   # Forms
   create_account: "Create Account"
 
+  # Admin
+  admincp: AdminCP
+
   # Errors
   errors:
     invalid_username_or_password: "Invalid username and/or password"
