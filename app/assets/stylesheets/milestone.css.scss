@@ -1,3 +1,46 @@
+
+#header {
+  color: #fff;
+  background: #3478aa;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  h1 {
+    margin: 5px 0;
+  }
+}
+
+#navbar {
+  .meta {
+    float: right;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+      display: inline;
+
+      a {
+        float: left;
+        padding: 2px 4px;
+
+        &:hover {
+          background: #fff;
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
 .translation_missing {
   outline: 1px solid red;
 }
