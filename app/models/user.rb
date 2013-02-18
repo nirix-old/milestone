@@ -28,4 +28,11 @@ class User < ActiveRecord::Base
   validates :username, :password_confirmation, :email, :name, presence: true
   validates :username, :email, uniqueness: { case_sensitive: false }, on: :create
   validates :password_digest, confirmation: true
+
+  ##
+  # Shortcut to the groups is_admin? method.
+  #
+  def is_admin?
+    group.is_admin?
+  end
 end
