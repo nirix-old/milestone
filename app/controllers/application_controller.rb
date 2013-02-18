@@ -35,8 +35,14 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  ##
+  # Returns true or false if the user is logged in
+  # or not.
+  #
+  # @return [Boolean]
+  #
   def logged_in?
-    session.key?(:user_id) and current_user.id > 0
+    current_user
   end
   helper_method :logged_in?
 end
