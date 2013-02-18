@@ -8,6 +8,10 @@ Milestone::Application.routes.draw do
   root to: "projects#index"
   resources :projects
 
+  namespace :admin do
+    root to: "dashboard#index"
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
