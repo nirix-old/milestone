@@ -22,12 +22,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def current_user
-    if session.key?(:user_id) and user = User.find(session[:user_id])
-      @_current_user = user
-    else
-      @_current_user = User.new({ username: t(:guest), group_id: 3 })
     end
+  end
+
+  ##
+  # Gets the current user.
+  #
+  # @return [Object]
+  #
+  def current_user
+    @_current_user ||= User.find(session[:user_id]) if session.key?(:user_id)
   end
   helper_method :current_user
 
