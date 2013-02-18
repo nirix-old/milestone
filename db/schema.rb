@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20130218111220) do
     t.string   "password_digest",                :null => false
     t.string   "email",                          :null => false
     t.string   "name",                           :null => false
-    t.integer  "group_id",        :default => 3, :null => false
+    t.integer  "group_id",        :default => 2, :null => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
   end
