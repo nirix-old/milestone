@@ -22,6 +22,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  def initialize
+    super
+
+    # Fetch all settings
+    @_settings = {}
+    Setting.all.each do |setting|
+      @_settings[setting.name] = setting.value
     end
   end
 
@@ -45,4 +52,14 @@ class ApplicationController < ActionController::Base
     current_user
   end
   helper_method :logged_in?
+
+  ##
+  # Returns the value of the setting.
+  #
+  # @return [Mixed]
+  #
+  def setting(setting)
+    @_settings[setting.to_s]
+  end
+  helper_method :setting
 end
