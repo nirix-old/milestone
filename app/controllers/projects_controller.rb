@@ -16,11 +16,20 @@
 # along with Milestone. If not, see <http://www.gnu.org/licenses/>.
 #
 
+##
+# Projects controller.
+#
 class ProjectsController < ApplicationController
+  ##
+  # Project listing page.
+  #
   def index
     @projects = Project.all
   end
 
+  ##
+  # View project page.
+  #
   def show
     @project = Project.find(params[:id])
   end
