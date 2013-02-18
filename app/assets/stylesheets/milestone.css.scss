@@ -14,10 +14,6 @@
 }
 
 #navbar {
-  .meta {
-    float: right;
-  }
-
   ul {
     list-style: none;
     padding: 0;
@@ -36,6 +32,33 @@
           background: #fff;
           color: #000;
         }
+      }
+    }
+  }
+}
+
+#meta-nav {
+  background: #265f98;
+  font-size: 12px;
+
+  a {
+    color: #fff;
+  }
+
+  .user-nav {
+    float: right;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+
+    li {
+      display: inline;
+      margin-right: 4px;
+
+      &:last-child {
+        margin-right: 0;
       }
     }
   }
