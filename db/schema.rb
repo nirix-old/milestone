@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130217054832) do
+ActiveRecord::Schema.define(:version => 20130218103002) do
 
   create_table "projects", :force => true do |t|
     t.string "name",        :null => false
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(:version => 20130217054832) do
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
+
+  create_table "settings", :force => true do |t|
+    t.string "name",                                :null => false
+    t.text   "value"
+    t.string "setting_type",    :default => "text", :null => false
+    t.text   "possible_values"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username",                       :null => false

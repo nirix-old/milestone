@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  value: MyText
+  setting_type: MyString
+  possible_values: MyText
+
+two:
+  name: MyString
+  value: MyText
+  setting_type: MyString
+  possible_values: MyText
