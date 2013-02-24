@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  password_digest: MyString
-  email: MyString
-  name: MyString
+  username: Admin
+  password_digest: $2a$10$duhZC6kiVz072trOPm9i8Ow/e16Lhu9013e9XMZvlWfjNjYubM9T.
+  email: admin@example.com
+  name: The Admin
   group_id: 1
 
 two:
-  name: MyString
-  password_digest: MyString
-  email: MyString
-  name: MyString
-  group_id: 1
+  username: Tester
+  password_digest: $2a$10$duhZC6kiVz072trOPm9i8Ow/e16Lhu9013e9XMZvlWfjNjYubM9T.
+  email: tester@example.com
+  name: Thte Tester
+  group_id: 2

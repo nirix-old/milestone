@@ -7,7 +7,7 @@ Milestone::Application.routes.draw do
 
   root to: "projects#index"
   match '/projects' => "projects#index"
-  match '/projects/:id' => "projects#show"
+  match '/projects/:id' => "projects#show", as: 'project'
   match '/projects/:id/settings' => "projects#settings", as: 'project_settings'
 
   namespace :admin do

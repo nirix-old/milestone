@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  slug: MyString
-  description: MyText
+  name: Project One
+  slug: project-one
+  description: Project one
 
 two:
-  name: MyString
-  slug: MyString
-  description: MyText
+  name: Project Two
+  slug: project-two
+  description: Project two
