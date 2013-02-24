@@ -6,10 +6,12 @@ Milestone::Application.routes.draw do
   match '/logout' => "sessions#destroy"
 
   root to: "projects#index"
-  resources :projects
+  match '/projects' => "projects#index"
+  match '/projects/:id' => "projects#show"
 
   namespace :admin do
     root to: "dashboard#index"
+    resources :projects
   end
 
   # The priority is based upon order of creation:
