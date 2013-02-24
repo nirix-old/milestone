@@ -20,5 +20,5 @@
 # Application controller for the admin control panel.
 #
 class Admin::ApplicationController < ApplicationController
-
+  layout 'admin'
 end

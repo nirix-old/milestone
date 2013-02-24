@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Milestone</title>
+		<%= stylesheet_link_tag "application", media: "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id="meta-nav">
+			<div class="container">
+				<ul class="user-nav">
+				<% if logged_in? %>
+					<li><%=link_to t(:logout), logout_path %></li>
+				<% else %>
+					<li><%=link_to t(:login), login_path %></li>
+					<li><%=link_to t(:register), register_path %></li>
+				<% end %>
+				</ul>
+			</div>
+		</div>
+		<div id="header">
+			<div class="container">
+				<h1><%=link_to t(:admincp), admin_root_path %></h1>
+				<nav id="navbar">
+					<ul>
+						<li><%=link_to t(:projects), admin_projects_path %></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div id="page">
+			<div class="container">
+				<%=render 'layouts/flash_messages' %>
+				<%= yield %>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="container">
+				<%=raw t(:copyright) %>
+			</div>
+		</div>
+	</body>
+</html>
