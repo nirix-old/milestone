@@ -1,13 +1,14 @@
 Milestone::Application.routes.draw do
-  get '/login' => "sessions#new"
-  post '/login' => "sessions#create"
-  get '/register' => "users#new"
-  post '/register' => "users#create"
-  match '/logout' => "sessions#destroy"
+  get   '/login'    => "sessions#new"
+  post  '/login'    => "sessions#create"
+  get   '/register' => "users#new"
+  post  '/register' => "users#create"
+  match '/logout'   => "sessions#destroy"
 
   root to: "projects#index"
   match '/projects' => "projects#index"
   match '/projects/:id' => "projects#show"
+  match '/projects/:id/settings' => "projects#settings", as: 'project_settings'
 
   namespace :admin do
     root to: "dashboard#index"
