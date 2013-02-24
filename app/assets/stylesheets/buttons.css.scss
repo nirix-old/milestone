@@ -1,0 +1,44 @@
+.btn-new,
+.btn-edit,
+.btn-delete,
+.btn-enable,
+.btn-disable,
+.btn-new-bug {
+  padding:  1px 0 1px 20px;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  &.small {
+    background-position: center;
+    padding: 0;
+    height: 18px;
+    width: 18px;
+    text-indent: -5000px;
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.btn-new {
+  background-image: url('images/add.png');
+}
+
+.btn-edit {
+  background-image: url('images/pencil.png');
+}
+
+.btn-delete {
+  background-image: url('images/delete.png');
+}
+
+.btn-enable {
+  background-image: url('images/plugin_add.png');
+}
+
+.btn-disable {
+  background-image: url('images/plugin_delete.png');
+}
+
+.btn-new-bug {
+  background-image: url('images/bug_add.png');
+}
