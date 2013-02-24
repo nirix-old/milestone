@@ -14,8 +14,8 @@
 			<tr>
 				<td><%=link_to p.name, project_settings_path(p) %></td>
 				<td>
-					<%=link_to p.name, project_settings_path(p), class: 'btn-edit' %>
-					<%=link_to p.name, admin_project_path(p), class: 'btn-delete', method: :delete %>
+					<%=link_to t(:edit), project_settings_path(p), class: 'btn-edit' %>
+					<%=link_to t(:delete), admin_project_path(p), class: 'btn-delete', method: :delete %>
 				</td>
 			</tr>
 		<% end %>

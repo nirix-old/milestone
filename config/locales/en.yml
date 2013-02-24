@@ -5,6 +5,8 @@ en:
   copyright: "Powered by Milestone, &copy; 2013"
   confirm: Confirm
   projects: Projects
+  edit: Edit
+  delete: Delete
 
   # Users
   login: Login
@@ -19,6 +21,7 @@ en:
 
   # Admin
   admincp: AdminCP
+  new_project: "New Project"
 
   # Errors
   errors:
