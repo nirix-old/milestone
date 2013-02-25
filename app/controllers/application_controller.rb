@@ -62,4 +62,38 @@ class ApplicationController < ActionController::Base
     @_settings[setting.to_s]
   end
   helper_method :setting
+
+  ##
+  # Require the user be an admin.
+  #
+  def require_admin
+    if !logged_in? or !current_user.is_admin?
+      render_403
+      return false
+    end
+  end
+
+  ##
+  # Renders a no permission page.
+  #
+  def render_403
+    render_error :'errors.no_permission.message', 403
+  end
+
+  ##
+  # Renders an error page
+  #
+  # @param [Mixed]   message Error message
+  # @param [Integer] status  Status code
+  def render_error(message, status = 500)
+    @message = message
+    @status  = status
+
+    # If the message is a symbol, get the translation
+    @message = t(@message) if @messsage.is_a?(Symbol)
+
+    respond_to do |format|
+      format.html { render 'errors/common', status: @status }
+    end
+  end
 end
