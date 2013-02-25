@@ -26,6 +26,9 @@ en:
   # Errors
   errors:
     invalid_username_or_password: "Invalid username and/or password"
+    no_permission:
+      title: "Access denied"
+      message: "You don't have permission to access this page."
 
   # ActiveRecord
   activerecord:
