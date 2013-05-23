@@ -9,38 +9,18 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218111220) do
+ActiveRecord::Schema.define(version: 20130520181251) do
 
-  create_table "groups", :force => true do |t|
-    t.string  "name",                        :null => false
-    t.boolean "is_admin", :default => false, :null => false
-  end
-
-  create_table "projects", :force => true do |t|
-    t.string "name",        :null => false
-    t.string "slug",        :null => false
-    t.text   "description"
-  end
-
-  add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
-
-  create_table "settings", :force => true do |t|
-    t.string "name",                                :null => false
-    t.text   "value"
-    t.string "setting_type",    :default => "text", :null => false
-    t.text   "possible_values"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "username",                       :null => false
-    t.string   "password_digest",                :null => false
-    t.string   "email",                          :null => false
-    t.string   "name",                           :null => false
-    t.integer  "group_id",        :default => 2, :null => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.string   "name"
+    t.string   "email"
+    t.integer  "group_id",        default: 2, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
