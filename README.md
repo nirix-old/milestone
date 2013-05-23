@@ -1,4 +1,4 @@
-Milestone
+Milestone [![Build Status](https://travis-ci.org/nirix/milestone.png?branch=master)](https://travis-ci.org/nirix/milestone)
 =========
 
 Milestone is a multi-project manager and issue tracker powered the Ruby on Rails framework.
