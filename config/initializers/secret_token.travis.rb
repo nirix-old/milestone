@@ -1,0 +1,1 @@
+Milestone::Application.config.secret_key_base = '0355952a29785c7b7513046306676bb9486a2ee18707f618b45f01b78aeb358ee2f86a442ed297cb6c70cd0c4260cbccaee4c727d12aeebe73ff31ff18154437'
