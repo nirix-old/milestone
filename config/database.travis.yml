@@ -1,0 +1,5 @@
+test:
+  adapter: mysql2
+  database: milestone_test
+  username: root
+  encoding: utf8
