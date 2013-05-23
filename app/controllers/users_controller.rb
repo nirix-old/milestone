@@ -16,34 +16,27 @@
 # along with Milestone. If not, see <http://www.gnu.org/licenses/>.
 #
 
-##
-# Users controller
-#
 class UsersController < ApplicationController
-  ##
-  # Register form
-  #
+  before_action :already_signed_in, only: [:new, :create]
+
   def new
     @user = User.new
   end
 
-  ##
-  # Create user
-  #
   def create
-    @user = User.new({
-      username: params[:user][:username],
-      password: params[:user][:password],
-      password_confirmation: params[:user][:password_confirmation],
-      email: params[:user][:email],
-      name: params[:user][:name]
-    })
+    @user = User.new user_params
 
     if @user.save
-      flash[:success] = t(:account_successfully_created)
-      redirect_to '/login'
+      flash[:success] = t(:account_created)
+      redirect_to login_path
     else
       render :new
     end
   end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :username, :password, :password_confirmation, :email)
+    end
 end

@@ -16,84 +16,27 @@
 # along with Milestone. If not, see <http://www.gnu.org/licenses/>.
 #
 
-##
-# Application controller.
-#
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
 
-  def initialize
-    super
-
-    # Fetch all settings
-    @_settings = {}
-    Setting.all.each do |setting|
-      @_settings[setting.name] = setting.value
-    end
-  end
-
-  ##
-  # Gets the current user.
-  #
-  # @return [Object]
-  #
-  def current_user
-    @_current_user ||= User.find(session[:user_id]) if session.key?(:user_id)
-  end
-  helper_method :current_user
-
-  ##
-  # Returns true or false if the user is logged in
-  # or not.
-  #
-  # @return [Boolean]
-  #
   def logged_in?
-    current_user
+    session.include?(:user_id) and User.exists?(session[:user_id])
   end
   helper_method :logged_in?
 
-  ##
-  # Returns the value of the setting.
-  #
-  # @return [Mixed]
-  #
-  def setting(setting)
-    @_settings[setting.to_s]
+  def current_user
+    @current_user ||= User.find(session[:user_id])
   end
-  helper_method :setting
+  helper_method :current_user
 
-  ##
-  # Require the user be an admin.
-  #
-  def require_admin
-    if !logged_in? or !current_user.is_admin?
-      render_403
-      return false
+  private
+
+    def already_signed_in
+      if logged_in?
+        flash[:error] = t(:already_signed_in)
+        redirect_to root_path
+      end
     end
-  end
-
-  ##
-  # Renders a no permission page.
-  #
-  def render_403
-    render_error :'errors.no_permission.message', 403
-  end
-
-  ##
-  # Renders an error page
-  #
-  # @param [Mixed]   message Error message
-  # @param [Integer] status  Status code
-  def render_error(message, status = 500)
-    @message = message
-    @status  = status
-
-    # If the message is a symbol, get the translation
-    @message = t(@message) if @messsage.is_a?(Symbol)
-
-    respond_to do |format|
-      format.html { render 'errors/common', status: @status }
-    end
-  end
 end

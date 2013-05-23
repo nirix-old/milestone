@@ -16,34 +16,25 @@
 # along with Milestone. If not, see <http://www.gnu.org/licenses/>.
 #
 
-##
-# Sessions controller
-#
 class SessionsController < ApplicationController
-  ##
-  # Login form
-  #
+  before_action :already_signed_in, only: [:new, :create]
+
   def new
   end
 
-  ##
-  # Create session
-  #
   def create
-    if user = User.where(username: params[:username]).first.try(:authenticate, params[:password])
+    if user = User.find_by(username: params[:user][:username]) and user.try(:authenticate, params[:user][:password])
       session[:user_id] = user.id
-      redirect_to root_url
+      flash[:success] = t(:logged_in_successfully)
+      redirect_to root_path
     else
-      @error = true
-      render :new
+      render :new, locals: { error: true }
     end
   end
 
-  ##
-  # Destory sesion
-  #
   def destroy
-    session.delete(:user_id) if session.key?(:user_id)
-    redirect_to root_url
+    session.delete :user_id
+    flash[:success] = t(:logged_out_successfully)
+    redirect_to root_path
   end
 end
