@@ -16,9 +16,8 @@
 # along with Milestone. If not, see <http://www.gnu.org/licenses/>.
 #
 
-##
-# User group model
-#
 class Group < ActiveRecord::Base
-  attr_accessible :is_admin, :name
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+
+  has_many :users
 end
