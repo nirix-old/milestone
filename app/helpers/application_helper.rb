@@ -1,15 +1,6 @@
 module ApplicationHelper
-  ##
-  # Easily display model errors.
-  #
-  # @param [Object] model The model containing errors.
-  #
-  # @return [String]
-  #
-  # @example
-  #     <%=show_errors_for @user %>
-  #
-  def show_errors_for(model)
-    render 'errors/errors_for', model: model
+  def error_messages_for(model)
+    return "" if model.errors.empty?
+    render "errors/error_messages", errors: model.errors.full_messages
   end
 end
