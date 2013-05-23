@@ -1,3 +1,3 @@
 before_script:
   - mysql -e 'create database milestone_test;'
-  - mv 'config/database.travis.yml config/database.yml'
+  - mv 'config/database.travis.yml' 'config/database.yml'
