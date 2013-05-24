@@ -7,5 +7,7 @@ Milestone::Application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
 
+  resources :projects, only: :show, path: ''
+
   root to: 'projects#index'
 end
