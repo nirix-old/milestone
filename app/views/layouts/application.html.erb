@@ -3,7 +3,6 @@
 	<head>
 		<title>Milestone</title>
 		<%= stylesheet_link_tag "application", media: "all" %>
-		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
@@ -25,14 +24,14 @@
 				<h1><%=link_to setting(:title), root_path %></h1>
 				<nav id="navbar">
 					<ul>
-						<li><%=link_to t(:projects), projects_path %></li>
+						<li><%=link_to t(:projects), root_path %></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
 		<div id="page">
 			<div class="container">
-				<%=render 'layouts/flash_messages' %>
+				<%= flash_messages %>
 				<%= yield %>
 			</div>
 		</div>
@@ -41,5 +40,7 @@
 				<%=raw t(:copyright) %>
 			</div>
 		</div>
+
+		<%= javascript_include_tag "application" %>
 	</body>
 </html>
