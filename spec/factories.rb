@@ -9,4 +9,14 @@ FactoryGirl.define do
       group_id 1
     end
   end
+
+  factory :group do
+    sequence(:name) { |n| "Group #{n}" }
+    is_admin false
+
+    factory :admin_group do
+      name "Admin"
+      is_admin true
+    end
+  end
 end
