@@ -3,10 +3,11 @@ FactoryGirl.define do
     sequence(:name) { |n| "User #{n}" }
     sequence(:username) { |n| "user_#{n}" }
     email { "#{username}@example.com" }
-    group_id 2
+    password "bazinga"
+    association :group
 
     factory :admin do
-      group_id 1
+      association :group, is_admin: true
     end
   end
 
