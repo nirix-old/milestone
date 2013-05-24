@@ -31,6 +31,22 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  # This needs to be better
+  def setting(name)
+    @_settings = {} unless @_settings
+
+    unless @_settings.include? name.to_sym
+      begin
+        @_settings[name.to_sym] = Setting.find_by(name: name.to_s).value
+      rescue
+        @_settings[name.to_sym] = nil
+      end
+    end
+
+    @_settings[name.to_sym]
+  end
+  helper_method :setting
+
   private
 
     def already_signed_in

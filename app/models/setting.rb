@@ -16,9 +16,5 @@
 # along with Milestone. If not, see <http://www.gnu.org/licenses/>.
 #
 
-##
-# Settings model
-#
 class Setting < ActiveRecord::Base
-  attr_accessible :name, :possible_values, :setting_type, :value
 end
