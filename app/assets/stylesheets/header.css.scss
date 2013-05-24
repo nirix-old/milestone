@@ -1,0 +1,45 @@
+
+#meta-nav {
+  background-color: #265f98;
+  color: #fff;
+}
+
+#header {
+  background-color: #3478aa;
+  color: #fff;
+}
+
+#header, #meta-nav {
+  a:link, a:visited {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+#meta-nav {
+  padding: 4px 0;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &.user-nav {
+      float: right;
+    }
+  }
+
+  li {
+    display: inline;
+    margin-right: 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a:link, a:visited {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
