@@ -4,6 +4,12 @@ module ApplicationHelper
     render "errors/error_messages", errors: model.errors.full_messages
   end
 
+  def error_messages_panel_for(model, options = {})
+    return "" if model.errors.empty?
+    options[:title] = t(:please_correct_the_following_errors) unless options.include? :title
+    render "errors/error_messages_panel", options.merge({ errors: model.errors.full_messages })
+  end
+
   def flash_messages
     return unless flash.count
 

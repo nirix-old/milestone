@@ -2,7 +2,7 @@
 	<h2 id="page-title"><%=t :register %></h2>
 
 	<%= form_for @user, url: register_path do |f| %>
-		<%= error_messages_for @user %>
+		<%= error_messages_panel_for @user %>
 		<div class="control-group">
 			<%=f.label :name, t(:name), class: 'control-label' %>
 			<div class="controls">
