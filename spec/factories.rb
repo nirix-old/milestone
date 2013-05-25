@@ -20,4 +20,10 @@ FactoryGirl.define do
       is_admin true
     end
   end
+
+  factory :project do
+    sequence(:name) { |n| "Project #{n}" }
+    slug { name.parameterize }
+    info "Bazinga!"
+  end
 end
