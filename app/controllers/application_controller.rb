@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  prepend_before_action :get_project
+
   def logged_in?
     session.include?(:user_id) and User.exists?(session[:user_id])
   end
@@ -47,12 +49,24 @@ class ApplicationController < ActionController::Base
   end
   helper_method :setting
 
+  def current_project
+    @current_project ||= false
+  end
+  helper_method :current_project
+
   private
 
     def already_signed_in
       if logged_in?
         flash[:error] = t(:already_signed_in)
         redirect_to root_path
+      end
+    end
+
+    def get_project
+      slug = params[:project_slug] || params[:slug]
+      if project = Project.find_by(slug: slug)
+        @current_project = project
       end
     end
 end
