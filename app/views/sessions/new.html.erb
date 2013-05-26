@@ -1,25 +1,31 @@
 <div class="login content">
-	<h2 id="page-title"><%=t :login %></h2>
-	<%= form_for User.new, url: login_path do |f| %>
-		<% if defined?(error) and error %>
-		<div class="alert error">
-			<%=t :invalid_username_or_password %>
+	<div class="row">
+		<div class="offset3 span6">
+			<h2 id="page-title"><%=t :login %></h2>
+			<%= form_for User.new, url: login_path, html: { class: 'tabular' } do |f| %>
+				<% if defined?(error) and error %>
+				<div class="alert error">
+					<%=t :invalid_username_or_password %>
+				</div>
+				<% end %>
+				<div class="box">
+					<div class="control-group">
+						<%=f.label :username, t(:username), class: 'control-label' %>
+						<div class="controls">
+							<%=f.text_field :username %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%=f.label :password, t(:password), class: 'control-label' %>
+						<div class="controls">
+							<%=f.password_field :password %>
+						</div>
+					</div>
+				</div>
+				<div class="actions">
+					<%=f.submit t(:login) %>
+				</div>
+			<% end %>
 		</div>
-		<% end %>
-		<div class="control-group">
-			<%=f.label :username, t(:username), class: 'control-label' %>
-			<div class="controls">
-				<%=f.text_field :username %>
-			</div>
-		</div>
-		<div class="control-group">
-			<%=f.label :password, t(:password), class: 'control-label' %>
-			<div class="controls">
-				<%=f.password_field :password %>
-			</div>
-		</div>
-		<div class="actions">
-			<%=f.submit t(:login) %>
-		</div>
-	<% end %>
+	</div>
 </div>
