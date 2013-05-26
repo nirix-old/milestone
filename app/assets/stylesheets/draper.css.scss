@@ -3,3 +3,19 @@
 .container {
   margin: 0 auto;
 }
+
+form {
+  &.tabular .control-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .actions {
+    margin-top: 10px;
+  }
+}
+
+.row {
+  .offset3 {
+    margin-left: 25.5%;
+  }
+}
