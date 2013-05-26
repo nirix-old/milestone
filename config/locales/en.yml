@@ -19,11 +19,15 @@ en:
   # Forms
   create_account: "Create Account"
 
+  # Flash messages
+  account_created: "Account created, you may now login"
+
   # Admin
   admincp: AdminCP
   new_project: "New Project"
 
   # Errors
+  please_correct_the_following_errors: "Please correct the following errors"
   errors:
     invalid_username_or_password: "Invalid username and/or password"
     no_permission:
