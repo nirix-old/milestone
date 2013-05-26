@@ -63,6 +63,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def require_admin
+      return render_no_permission unless logged_in? and current_user.is_admin?
+    end
+
     def get_project
       slug = params[:project_slug] || params[:slug]
       if project = Project.find_by(slug: slug)
