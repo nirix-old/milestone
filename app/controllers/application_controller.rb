@@ -73,4 +73,8 @@ class ApplicationController < ActionController::Base
         @current_project = project
       end
     end
+
+    def render_no_permission
+      render 'errors/no_permission'
+    end
 end
