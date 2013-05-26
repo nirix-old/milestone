@@ -1,4 +1,5 @@
 Milestone::Application.routes.draw do
+  get "settings/index"
   get  '/register', to: 'users#new'
   post '/register', to: 'users#create'
 
@@ -6,6 +7,10 @@ Milestone::Application.routes.draw do
   post '/login', to: 'sessions#create'
 
   delete '/logout', to: 'sessions#destroy'
+
+  namespace :admin do
+    get '/', to: 'settings#index'
+  end
 
   resources :projects, only: :show, path: '', param: :slug
 
