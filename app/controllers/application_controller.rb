@@ -24,12 +24,12 @@ class ApplicationController < ActionController::Base
   prepend_before_action :get_project
 
   def logged_in?
-    session.include?(:user_id) and User.exists?(session[:user_id])
+    current_user
   end
   helper_method :logged_in?
 
   def current_user
-    @current_user ||= User.find(session[:user_id])
+    @current_user ||= User.find_by(id: session[:user_id])
   end
   helper_method :current_user
 
