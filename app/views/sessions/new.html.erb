@@ -5,7 +5,7 @@
 			<%= form_for User.new, url: login_path, html: { class: 'tabular' } do |f| %>
 				<% if defined?(error) and error %>
 				<div class="alert error">
-					<%=t :invalid_username_or_password %>
+					<%=t :'errors.invalid_username_or_password' %>
 				</div>
 				<% end %>
 				<div class="box">
