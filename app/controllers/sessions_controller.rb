@@ -25,7 +25,6 @@ class SessionsController < ApplicationController
   def create
     if params.include?(:user) and user = User.find_by(username: params[:user][:username]) and user.try(:authenticate, params[:user][:password])
       session[:user_id] = user.id
-      flash[:success] = t(:logged_in_successfully)
       redirect_to root_path
     else
       render :new, locals: { error: true }
