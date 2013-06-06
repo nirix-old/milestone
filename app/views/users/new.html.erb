@@ -1,6 +1,6 @@
 <div class="register content">
 	<div class="row">
-		<div class="offset3 span6">
+		<div class="col span-6 offset-3">
 			<h2 id="page-title"><%=t :register %></h2>
 			<%= form_for @user, url: register_path, html: { class: 'tabular' } do |f| %>
 				<%= error_messages_panel_for @user %>

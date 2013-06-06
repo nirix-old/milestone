@@ -1,6 +1,6 @@
 <div class="login content">
 	<div class="row">
-		<div class="offset3 span6">
+		<div class="col span-6 offset-3">
 			<h2 id="page-title"><%=t :login %></h2>
 			<%= form_for User.new, url: login_path, html: { class: 'tabular' } do |f| %>
 				<% if defined?(error) and error %>
