@@ -1,7 +1,19 @@
 <div class="admin settings content">
   <h2 class="page-title"><%=t :settings %></h2>
 
+  <%= form_tag request.path_info, class: 'tabular' do %>
   <fieldset class="box">
     <legend><%=t :milestone %></legend>
+    <div class="control-group">
+      <%= label_tag 'settings[title]', t(:title), class: 'control-label' %>
+      <div class="controls">
+        <%= text_field_tag 'settings[title]', setting(:title) %>
+      </div>
+    </div>
   </fieldset>
+
+  <div class="actions">
+    <%= submit_tag t(:save) %>
+  </div>
+  <% end %>
 </div>
