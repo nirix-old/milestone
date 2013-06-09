@@ -11,9 +11,13 @@ Milestone::Application.routes.draw do
     get '/', to: 'dashboard#index'
     get '/settings', to: 'settings#index', as: :settings
     post '/settings', to: 'settings#save'
+
+    resources :projects
   end
 
-  resources :projects, only: :show, path: '', param: :slug
+  resources :projects, only: :show, path: '', param: :slug do
+    get '/settings', to: 'project_settings#index', as: :settings
+  end
 
   root to: 'projects#index'
 end
