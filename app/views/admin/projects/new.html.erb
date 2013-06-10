@@ -1,0 +1,33 @@
+<div class="new project content">
+  <h2 id="page-title"><%=t :new_project %></h2>
+
+  <%= form_for [:admin, @project], html: { class: :tabular } do |f| %>
+    <%= error_messages_for @project %>
+    <div class="box">
+      <div class="control-group">
+        <%= f.label :name, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :slug, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :slug %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :info, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :info %>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t(:create) %>
+    </div>
+  <% end %>
+</div>

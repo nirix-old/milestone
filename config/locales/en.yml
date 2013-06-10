@@ -18,6 +18,7 @@ en:
 
   # Forms
   create_account: "Create Account"
+  create: Create
   save: Save
 
   # Flash messages
