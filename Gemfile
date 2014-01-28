@@ -44,6 +44,7 @@ gem 'thin'
 platforms :rbx do
   gem 'racc'
   gem 'rubysl', '~> 2.0'
+  gem 'rubysl-test-unit'
   gem 'psych'
 end
 
