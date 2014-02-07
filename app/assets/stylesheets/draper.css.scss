@@ -5,11 +5,12 @@
 }
 
 form {
-  &.tabular .control-group:last-child {
+  .form-group:last-child {
     margin-bottom: 0;
   }
 
   .actions {
     margin-top: 10px;
+    text-align: center;
   }
 }
