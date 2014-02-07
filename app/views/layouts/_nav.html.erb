@@ -1,0 +1,9 @@
+<nav id="navbar">
+	<ul>
+	<% if current_project %>
+		<li><%=link_to t(:settings), project_settings_path(current_project.slug) %></li>
+	<% else %>
+		<li><%=link_to t(:projects), root_path %></li>
+	<% end  %>
+	</ul>
+</nav>
