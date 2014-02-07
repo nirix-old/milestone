@@ -29,6 +29,9 @@ en:
   admincp: AdminCP
   new_project: "New Project"
 
+  # Flash messages
+  you_are_now_logged_out: "You are now logged out"
+
   # Errors
   please_correct_the_following_errors: "Please correct the following errors"
   errors:

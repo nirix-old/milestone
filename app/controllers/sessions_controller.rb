@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete :user_id
-    flash[:success] = t(:logged_out_successfully)
+    flash[:notice] = t(:you_are_now_logged_out)
     redirect_to root_path
   end
 end
