@@ -1,33 +1,33 @@
 <div class="new project content">
   <h2 id="page-title"><%=t :new_project %></h2>
 
-  <%= form_for [:admin, @project], html: { class: :tabular } do |f| %>
+  <%= form_for [:admin, @project], html: { class: 'form-horizontal' } do |f| %>
     <%= error_messages_for @project %>
     <div class="box">
-      <div class="control-group">
-        <%= f.label :name, class: 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :name %>
+      <div class="form-group">
+        <%= f.label :name, class: 'control-label col span-2' %>
+        <div class="col span-10">
+          <%= f.text_field :name, class: 'form-control' %>
         </div>
       </div>
 
-      <div class="control-group">
-        <%= f.label :slug, class: 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :slug %>
+      <div class="form-group">
+        <%= f.label :slug, class: 'control-label col span-2' %>
+        <div class="col span-10">
+          <%= f.text_field :slug, class: 'form-control' %>
         </div>
       </div>
 
-      <div class="control-group">
-        <%= f.label :info, class: 'control-label' %>
-        <div class="controls">
-          <%= f.text_area :info %>
+      <div class="form-group">
+        <%= f.label :info, class: 'control-label col span-2' %>
+        <div class="col span-10">
+          <%= f.text_area :info, class: 'form-control' %>
         </div>
       </div>
     </div>
 
     <div class="actions">
-      <%= f.submit t(:create) %>
+      <%= f.submit t(:create), class: 'btn btn-success' %>
     </div>
   <% end %>
 </div>

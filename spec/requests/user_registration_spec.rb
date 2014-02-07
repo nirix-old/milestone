@@ -7,7 +7,7 @@ describe "User registration" do
     fill_in 'Username', with: 'test_user'
     fill_in 'Email',    with: 'test.user@example.com'
     fill_in 'Password', with: 'iamatestuser'
-    fill_in 'Confirm Password', with: 'iamatestuser'
+    fill_in 'user_password_confirmation', with: 'iamatestuser'
     click_button 'Create Account'
 
     current_path.should eq(login_path)

@@ -15,6 +15,7 @@ en:
   username: Username
   name: Name
   password: Password
+  confirm_password: "Confirm password"
 
   # Forms
   create_account: "Create Account"

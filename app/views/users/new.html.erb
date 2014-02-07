@@ -2,42 +2,42 @@
 	<div class="row">
 		<div class="col span-6 offset-3">
 			<h2 id="page-title"><%=t :register %></h2>
-			<%= form_for @user, url: register_path, html: { class: 'tabular' } do |f| %>
+			<%= form_for @user, url: register_path, html: { class: 'form-horizontal' } do |f| %>
 				<%= error_messages_panel_for @user %>
 				<div class="box">
-					<div class="control-group">
-						<%=f.label :name, t(:name), class: 'control-label' %>
-						<div class="controls">
-							<%=f.text_field :name %>
+					<div class="form-group">
+						<%=f.label :name, class: 'control-label col span-3' %>
+						<div class="col span-9">
+							<%=f.text_field :name, class: 'form-control' %>
 						</div>
 					</div>
-					<div class="control-group">
-						<%=f.label :username, t(:username), class: 'control-label' %>
-						<div class="controls">
-							<%=f.text_field :username %>
+					<div class="form-group">
+						<%=f.label :username, class: 'control-label col span-3' %>
+						<div class="col span-9">
+							<%=f.text_field :username, class: 'form-control' %>
 						</div>
 					</div>
-					<div class="control-group">
-						<%=f.label :email, t(:email), class: 'control-label' %>
-						<div class="controls">
-							<%=f.email_field :email %>
+					<div class="form-group">
+						<%=f.label :email, class: 'control-label col span-3' %>
+						<div class="col span-9">
+							<%=f.email_field :email, class: 'form-control' %>
 						</div>
 					</div>
-					<div class="control-group">
-						<%=f.label :password, t(:password), class: 'control-label' %>
-						<div class="controls">
-							<%=f.password_field :password %>
+					<div class="form-group">
+						<%=f.label :password, class: 'control-label col span-3' %>
+						<div class="col span-9">
+							<%=f.password_field :password, class: 'form-control' %>
 						</div>
 					</div>
-					<div class="control-group">
-						<%=f.label :password_confirmation, t(:confirm_password), class: 'control-label' %>
-						<div class="controls">
-							<%=f.password_field :password_confirmation %>
+					<div class="form-group">
+
+						<div class="col span-9 offset-3">
+							<%=f.password_field :password_confirmation, class: 'form-control', placeholder: t(:confirm_password) %>
 						</div>
 					</div>
 				</div>
 				<div class="actions">
-					<%=f.submit t(:create_account) %>
+					<%=f.submit t(:create_account), class: 'btn btn-success' %>
 				</div>
 			<% end %>
 		</div>
