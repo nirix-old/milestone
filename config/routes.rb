@@ -1,6 +1,4 @@
 Milestone::Application.routes.draw do
-  get "issues/index"
-  get "issues/view"
   get  '/register', to: 'users#new', as: :register
   post '/register', to: 'users#create'
 
@@ -21,6 +19,12 @@ Milestone::Application.routes.draw do
     get '/settings', to: 'project_settings#index', as: :settings
 
     resources :issues
+    resources :versions,
+              path: 'roadmap',
+              param: :slug,
+              only: [:index, :show],
+              controller: :roadmap
+
   end
 
   root to: 'projects#index'

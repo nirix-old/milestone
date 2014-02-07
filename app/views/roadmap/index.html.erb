@@ -1,0 +1,12 @@
+<div class="roadmap content">
+  <h2 id="page-title"><%=t :roadmap %></h2>
+
+  <ul id="milestones">
+  <% @milestones.each do |m| %>
+    <li>
+      <h3><%=link_to m.name, project_version_path(current_project.slug, m.slug) %></h3>
+      <%= m.description %>
+    </li>
+  <% end %>
+  </ul>
+</div>
