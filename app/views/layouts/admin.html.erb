@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<%= render 'layouts/head' %>
-	</head>
-	<body>
-		<%= render 'layouts/meta_nav' %>
-		<div id="header">
-			<div class="container">
-				<h1><%=link_to t(:admincp), admin_path %></h1>
-				<nav id="navbar">
-					<ul>
-						<li><%=link_to t(:settings), admin_settings_path %></li>
-						<li><%=link_to t(:projects), admin_projects_path %></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<div id="page">
-			<div class="container">
-				<%= flash_messages %>
-				<%= yield %>
-			</div>
-		</div>
-		<%= render 'layouts/footer' %>
-	</body>
+  <head>
+    <%= render 'layouts/head' %>
+  </head>
+  <body>
+    <%= render 'layouts/meta_nav' %>
+    <div id="header">
+      <div class="container">
+        <h1><%=link_to t(:admincp), admin_path %></h1>
+        <nav id="navbar">
+          <ul>
+            <li><%=link_to t(:settings), admin_settings_path %></li>
+            <li><%=link_to t(:projects), admin_projects_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div id="page">
+      <div class="container">
+        <%= flash_messages %>
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
 </html>
