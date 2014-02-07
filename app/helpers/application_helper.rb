@@ -17,7 +17,7 @@ module ApplicationHelper
 
     flash.each do |type, message|
       type = :success if type == :notice
-      type = :error   if type == :alert
+      type = :danger  if type == :alert
       messages.push({ type: type, message: message })
     end
 
