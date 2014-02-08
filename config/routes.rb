@@ -22,9 +22,7 @@ Milestone::Application.routes.draw do
     resources :versions,
               path: 'roadmap',
               param: :slug,
-              only: [:index, :show],
-              controller: :roadmap
-
+              only: [:index, :show]
   end
 
   root to: 'projects#index'

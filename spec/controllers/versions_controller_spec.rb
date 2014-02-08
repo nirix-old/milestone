@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe RoadmapController do
-  before do
+describe VersionsController do
+  before :all do
     @version = FactoryGirl.create :version
   end
 
