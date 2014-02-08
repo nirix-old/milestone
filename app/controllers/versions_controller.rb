@@ -24,23 +24,4 @@ class VersionsController < ApplicationController
   def show
     @milestone = current_project.versions.where(slug: params[:slug]).first
   end
-
-  def new
-    @version = Version.new
-  end
-
-  def create
-    @version = Version.new version_params
-    @version.project_id = current_project.id
-
-    if @version.save
-      redirect_to
-    end
-  end
-
-  private
-
-    def version_params
-      params.require(:version).permit :name, :slug, :description, :status
-    end
 end
