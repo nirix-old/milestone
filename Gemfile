@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', platforms: [:ruby, :rbx]
+gem 'activerecord-jdbcmysql-adapter', platforms: :jruby
 
 # Assets
 gem 'sass-rails', '~> 4.0.0'
@@ -31,8 +32,8 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Servers
 # gem 'unicorn'
-# gem 'puma'
-gem 'thin'
+gem 'thin', platforms: [:ruby, :rbx]
+gem 'puma', platforms: :jruby
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
