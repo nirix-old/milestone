@@ -16,7 +16,10 @@ Milestone::Application.routes.draw do
   end
 
   resources :projects, only: :show, path: '', param: :slug do
-    get '/settings', to: 'project_settings#index', as: :settings
+    namespace :project_settings, path: :settings do
+      get '/', to: 'settings#index'
+      resources :versions
+    end
 
     resources :issues
     resources :versions,
