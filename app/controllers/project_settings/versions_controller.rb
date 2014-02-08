@@ -21,9 +21,18 @@ class ProjectSettings::VersionsController < ProjectSettings::ApplicationControll
   end
 
   def new
+    @version = Version.new
   end
 
   def create
+    @version = Version.new version_params
+    @version.project_id = current_project.id
+
+    if @version.save
+      redirect_to project_settings_versions_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -31,4 +40,10 @@ class ProjectSettings::VersionsController < ProjectSettings::ApplicationControll
 
   def save
   end
+
+  private
+
+    def version_params
+      params.require(:version).permit :name, :slug, :description, :status
+    end
 end
