@@ -1,3 +1,31 @@
 <div class="project_settings versions content">
   <h2 id="page-title"><%=t :versions %></h2>
+
+  <table class="table-bordered table-hover table-striped">
+    <thead>
+      <tr>
+        <th><%=t :name %></th>
+        <th><%=t :status %></th>
+        <th><%=t :actions %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @versions.each do |v| %>
+      <tr>
+        <td><%= link_to v.name, edit_project_settings_version_path(current_project.slug,v.id) %></td>
+        <td><%= version_status v.status %></td>
+        <td>
+          <%= link_to t(:edit), edit_project_settings_version_path(current_project.slug, v.id) %>
+          <%= link_to t(:delete),
+                      project_settings_version_path(current_project.slug, v.id),
+                      data: {
+                        method: :delete,
+                        confirm: t('confirm.delete_version', name: v.name)
+                      }
+          %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>

@@ -18,6 +18,7 @@
 
 class ProjectSettings::VersionsController < ProjectSettings::ApplicationController
   def index
+    @versions = current_project.versions
   end
 
   def new
