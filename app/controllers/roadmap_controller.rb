@@ -18,10 +18,10 @@
 
 class RoadmapController < ApplicationController
   def index
-    @milestones = Version.all
+    @milestones = current_project.versions
   end
 
   def show
-    @milestone = Version.where(slug: params[:slug]).first
+    @milestone = current_project.versions.where(slug: params[:slug]).first
   end
 end

@@ -32,5 +32,6 @@ FactoryGirl.define do
     sequence(:name) { |n| "v1.#{n}.0" }
     slug { name.parameterize }
     description "Many fixes!"
+    association :project
   end
 end
