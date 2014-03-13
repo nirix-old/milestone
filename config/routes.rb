@@ -18,6 +18,8 @@ Milestone::Application.routes.draw do
   resources :projects, only: :show, path: '', param: :slug do
     namespace :project_settings, path: :settings, as: :settings do
       get '/', to: 'settings#index'
+      patch '/', to: 'settings#save'
+
       resources :versions
     end
 

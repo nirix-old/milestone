@@ -24,6 +24,7 @@ en:
 
   # Flash messages
   account_created: "Account created, you may now login"
+  project_settings_updated: "Successfully updated project settings"
 
   # Admin
   admincp: AdminCP

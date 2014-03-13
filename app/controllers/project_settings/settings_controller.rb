@@ -22,5 +22,20 @@ class ProjectSettings::SettingsController < ProjectSettings::ApplicationControll
   end
 
   def save
+    @project = Project.find current_project.id
+    @project.update project_params
+
+    if @project.save
+      flash[:success] = t :project_settings_updated
+      redirect_to project_settings_path
+    else
+      render :index
+    end
   end
+
+  private
+
+    def project_params
+      params.require(:project).permit :name, :slug, :info
+    end
 end
