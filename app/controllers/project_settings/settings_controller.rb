@@ -18,6 +18,7 @@
 
 class ProjectSettings::SettingsController < ProjectSettings::ApplicationController
   def index
+    @project = Project.find current_project.id
   end
 
   def save

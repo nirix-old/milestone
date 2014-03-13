@@ -1,3 +1,11 @@
 <div class="project_setttings content">
   <h2 id="page-title"><%=t :settings %></h2>
+  <%= form_for @project, url: project_settings_path, html: {class: 'form-horizontal' } do |f| %>
+    <%= error_messages_for @project %>
+    <%= render partial: 'project_settings/settings/form', locals: { f: f, project: @project } %>
+
+    <div class="actions">
+      <%= f.submit t(:save), class: 'btn btn-success' %>
+    </div>
+  <% end %>
 </div>
