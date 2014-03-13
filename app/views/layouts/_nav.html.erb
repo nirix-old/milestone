@@ -2,6 +2,7 @@
   <ul>
   <% if current_project %>
     <% if request_matches "#{project_settings_path(current_project.slug)}(/.*)?" %>
+      <li><%=link_to t(:settings), project_settings_path(current_project.slug) %></li>
       <li><%=link_to t(:versions), project_settings_versions_path(current_project.slug) %></li>
     <% else %>
       <li><%=link_to t(:issues), project_issues_path(current_project.slug) %></li>
