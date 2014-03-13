@@ -1,6 +1,6 @@
 <div class="admin projects listing content">
   <div class="page-actions">
-    <%=link_to t(:new_project), new_admin_project_path, class: 'btn-new' %>
+    <%=link_to t(:new_project), new_admin_project_path, class: 'btn btn-success' %>
   </div>
   <h2 id="page-title"><%=t :projects %></h2>
 
@@ -14,8 +14,8 @@
       <tr>
         <td><%=link_to p.name, project_settings_path(p.slug) %></td>
         <td>
-          <%=link_to t(:edit), project_settings_path(p.slug), class: 'btn-edit' %>
-          <%=link_to t(:delete), admin_project_path(p.slug), class: 'btn-delete', method: :delete %>
+          <%=link_to t(:edit), project_settings_path(p.slug), class: 'btn btn-warning' %>
+          <%=link_to t(:delete), admin_project_path(p.slug), class: 'btn btn-danger', method: :delete %>
         </td>
       </tr>
     <% end %>
