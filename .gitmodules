@@ -1,3 +1,0 @@
-[submodule "vendor/assets/stylesheets/draper"]
-	path = vendor/assets/stylesheets/draper
-	url = git://github.com/nirix/draper.git
