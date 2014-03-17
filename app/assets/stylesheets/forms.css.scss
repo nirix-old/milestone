@@ -1,0 +1,11 @@
+form {
+    &.form-horizontal {
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .actions {
+        text-align: center;
+    }
+}

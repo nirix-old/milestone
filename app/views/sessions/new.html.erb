@@ -1,31 +1,29 @@
 <div class="login content">
-  <div class="row">
-    <div class="col span-6 offset-3">
-      <h2 id="page-title"><%=t :login %></h2>
-      <%= form_for User.new, url: login_path, html: { class: 'form-horizontal' } do |f| %>
-        <% if defined?(error) and error %>
-        <div class="alert alert-danger">
-          <%=t :'errors.invalid_username_or_password' %>
-        </div>
-        <% end %>
-        <div class="box">
-          <div class="form-group">
-            <%=f.label :username, t(:username), class: 'control-label col span-2' %>
-            <div class="col span-10">
-              <%=f.text_field :username, class: 'form-control' %>
-            </div>
-          </div>
-          <div class="form-group">
-            <%=f.label :password, t(:password), class: 'control-label col span-2' %>
-            <div class="col span-10">
-              <%=f.password_field :password, class: 'form-control' %>
-            </div>
-          </div>
-        </div>
-        <div class="actions">
-          <%=f.button t(:login), class: 'btn btn-success' %>
-        </div>
+  <div class="col-sm-6 col-sm-offset-3">
+    <h2 id="page-title"><%=t :login %></h2>
+    <%= form_for User.new, url: login_path, html: { class: 'form-horizontal' } do |f| %>
+      <% if defined?(error) and error %>
+      <div class="alert alert-danger">
+        <%=t :'errors.invalid_username_or_password' %>
+      </div>
       <% end %>
-    </div>
+      <div class="well">
+        <div class="form-group">
+          <%=f.label :username, t(:username), class: 'control-label col-sm-2' %>
+          <div class="col-sm-10">
+            <%=f.text_field :username, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%=f.label :password, t(:password), class: 'control-label col-sm-2' %>
+          <div class="col-sm-10">
+            <%=f.password_field :password, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <%=f.button t(:login), class: 'btn btn-success' %>
+      </div>
+    <% end %>
   </div>
 </div>
