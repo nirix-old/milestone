@@ -32,6 +32,7 @@ en:
 
   # Flash messages
   you_are_now_logged_out: "You are now logged out"
+  version_saved: "Version saved"
 
   # Confirmations
   confirm:

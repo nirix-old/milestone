@@ -37,9 +37,19 @@ class ProjectSettings::VersionsController < ProjectSettings::ApplicationControll
   end
 
   def edit
+    @version = Version.find params[:id]
   end
 
-  def save
+  def update
+    @version = Version.find params[:id]
+    @version.update version_params
+
+    if @version.save
+      flash[:success] = t :version_saved
+      redirect_to project_settings_versions_path
+    else
+      render :edit
+    end
   end
 
   private

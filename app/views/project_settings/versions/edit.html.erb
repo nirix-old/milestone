@@ -1,3 +1,11 @@
 <div class="project_settings edit_version content">
-  <h2 id="page-title"><%=t :edit_version %></h2>
+  <h2 id="page-title"><%=t :editversion %></h2>
+
+  <%= form_for [:project_settings, @version], url: project_settings_version_path(current_project.slug, @version.id), html: { class: 'form-horizontal' } do |f| %>
+    <%= error_messages_panel_for @version %>
+    <%= render partial: 'form', locals: { f: f } %>
+    <div class="actions">
+      <%= f.submit t(:save), class: 'btn btn-success' %>
+    </div>
+  <% end %>
 </div>
