@@ -35,6 +35,9 @@
   padding: 4px 0;
 
   ul {
+    &.site-nav {
+      display: inline-block;
+    }
 
     &.user-nav {
       float: right;

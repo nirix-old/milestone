@@ -1,5 +1,10 @@
 <div id="meta-nav">
   <div class="container">
+    <ul class="site-nav">
+      <% if current_project or request_matches '/admin(/.*)?' %>
+        <%= link_to setting(:title), root_path %>
+      <% end %>
+    </ul>
     <ul class="user-nav">
     <% if logged_in? %>
       <li><%=link_to(t(:admincp), admin_path) if current_user.is_admin? %></li>
