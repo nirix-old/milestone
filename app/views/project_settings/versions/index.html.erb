@@ -18,14 +18,15 @@
       <tr>
         <td><%= link_to v.name, edit_project_settings_version_path(current_project.slug,v.id) %></td>
         <td><%= version_status v.status %></td>
-          <%= link_to t(:edit), edit_project_settings_version_path(current_project.slug, v.id) %>
         <td class="actions">
+          <%= link_to t(:edit), edit_project_settings_version_path(current_project.slug, v.id), class: 'btn btn-xs btn-warning' %>
           <%= link_to t(:delete),
                       project_settings_version_path(current_project.slug, v.id),
                       data: {
                         method: :delete,
-                        confirm: t('confirm.delete_version', name: v.name)
-                      }
+                        confirm: t('confirm.delete_x', name: v.name)
+                      },
+                      class: 'btn btn-xs btn-danger'
           %>
         </td>
       </tr>

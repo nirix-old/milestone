@@ -13,9 +13,16 @@
     <% @projects.each do |p| %>
       <tr>
         <td><%=link_to p.name, project_settings_path(p.slug) %></td>
-          <%=link_to t(:edit), project_settings_path(p.slug), class: 'btn btn-warning' %>
-          <%=link_to t(:delete), admin_project_path(p.slug), class: 'btn btn-danger', method: :delete %>
         <td class="actions">
+          <%= link_to t(:edit), project_settings_path(p.slug), class: 'btn btn-xs btn-warning' %>
+          <%= link_to t(:delete),
+                      admin_project_path(p.slug),
+                      data: {
+                        method: :delete,
+                        confirm: t('confirm.delete_x', name: p.name)
+                      },
+                      class: 'btn btn-xs btn-danger'
+          %>
         </td>
       </tr>
     <% end %>

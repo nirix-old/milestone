@@ -35,7 +35,7 @@ en:
 
   # Confirmations
   confirm:
-    delete_version: "Are you sure you want you delete version %{name}"
+    delete_x: "Are you sure you want you delete %{name}?"
 
   # Errors
   please_correct_the_following_errors: "Please correct the following errors"
