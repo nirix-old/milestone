@@ -27,6 +27,8 @@ Milestone::Application.routes.draw do
     resources :versions,
               path: 'roadmap',
               param: :slug,
+              slug: /[a-zA-Z0-9\-\._]+?/,
+              format: /json/,
               only: [:index, :show]
   end
 
