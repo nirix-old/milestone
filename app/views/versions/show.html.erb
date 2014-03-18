@@ -1,5 +1,7 @@
 <div class="milestone content">
   <h2 id="page-title"><%= @milestone.name %></h2>
   <%= render partial: 'progress_bar', locals: { milestone: @milestone } %>
-  <%= @milestone.description %>
+  <div class="milestone-description">
+    <%= markdown @milestone.description %>
+  </div>
 </div>
