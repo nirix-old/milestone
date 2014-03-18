@@ -5,6 +5,7 @@
   <% @milestones.each do |m| %>
     <li>
       <h3><%=link_to m.name, project_version_path(current_project.slug, m.slug) %></h3>
+      <%= render partial: 'progress_bar', locals: { milestone: m } %>
       <%= m.description %>
     </li>
   <% end %>

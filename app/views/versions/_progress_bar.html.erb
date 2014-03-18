@@ -1,0 +1,23 @@
+<div class="version-progress">
+  <div class="progress">
+    <a href="#" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+      {closed}
+    </a>
+    <a href="#" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+      {open}
+    </a>
+    <a href="#" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+      {open with severity >=major}
+    </a>
+  </div>
+  <dl>
+    <dt><%= t :open_issues %></dt>
+    <dd><%= link_to milestone.issues.open.count, '#' %></dd>
+
+    <dt><%= t :closed_issues %></dt>
+    <dd><%= link_to milestone.issues.closed.count, '#' %></dd>
+
+    <dt><%= t :total %></dt>
+    <dd><%= link_to milestone.issues.count, project_issues_path(current_project.slug, version: milestone.slug) %></dd>
+  </dl>
+</div>
