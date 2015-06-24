@@ -1,6 +1,5 @@
-<div class="project info content">
-  <h2 id="page-title"><%= current_project.name %></h2>
-  <div class="project-info">
-    <%= markdown current_project.info %>
-  </div>
+<div class="project container">
+    <h1 class="page-header"><%= @project.name %></h1>
+
+    <%= @project.description %>
 </div>

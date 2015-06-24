@@ -1,14 +1,13 @@
-<div class="projects listing content">
-  <h2 id="page-title"><%=t :projects %></h2>
+<div class="projects container">
+    <h1 class="page-header hidden"><%= t :projects %></h1>
 
-  <ul id="projects">
-  <% @projects.each do |p| %>
-    <li class="project">
-      <h3><%=link_to p.name, project_path(p.slug) %></h3>
-      <div class="project-info">
-        <%= markdown p.info %>
-      </div>
-    </li>
-  <% end %>
-  </ul>
+    <ul id="projects">
+    <% @projects.each do |project| %>
+        <li class="project">
+            <h2 class="project-title"><%= link_to project.name, project_path(project.slug) %></h2>
+
+            <%= project.description %>
+        </li>
+    <% end %>
+    </ul>
 </div>
