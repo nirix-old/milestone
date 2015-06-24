@@ -1,17 +1,18 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe VersionsController do
+RSpec.describe VersionsController, type: :controller do
   before :all do
-    @version = FactoryGirl.create :version
+    @project = create(:project)
   end
 
-  it "should list versions" do
-    get :index, project_slug: @version.project.slug
-    response.should render_template(:index)
+  it 'should render index' do
+    get :index, project_slug: @project.slug
+    expect(response).to render_template 'versions/index'
   end
 
-  it "should show version" do
-    get :show, project_slug: @version.project.slug, slug: @version.slug
-    response.should render_template(:show)
+  it 'should render show' do
+    version = create(:version)
+    get :show, project_slug: @project.slug, slug: version.slug
+    expect(response).to render_template 'versions/show'
   end
 end

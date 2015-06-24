@@ -1,15 +1,3 @@
-<div class="roadmap content">
-  <h2 id="page-title"><%=t :roadmap %></h2>
-
-  <ul id="milestones">
-  <% @milestones.each do |m| %>
-    <li>
-      <h3><%=link_to m.name, project_version_path(current_project.slug, m.slug) %></h3>
-      <%= render partial: 'progress_bar', locals: { milestone: m } %>
-      <div class="milestone-description">
-        <%= markdown m.description %>
-      </div>
-    </li>
-  <% end %>
-  </ul>
+<div class="roadmap container">
+    <h1 class="page-header"><%= t :roadmap %></h1>
 </div>
