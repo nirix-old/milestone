@@ -1,10 +1,17 @@
 #projects {
+    padding: 0;
+
     li.project {
         border-bottom: 1px solid black;
         padding-bottom: 5px;
+        list-style: none;
 
         &:last-child {
             border-bottom: 0;
+        }
+
+        h2 {
+            border-bottom: 1px solid #e7e7e7;
         }
     }
 }
