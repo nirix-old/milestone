@@ -25,5 +25,9 @@ Rails.application.routes.draw do
               slug: /[a-zA-Z0-9\-\._]+?/,
               format: /json/,
               only: [:index, :show]
+
+    namespace :project_settings, path: 'settings' do
+      root 'settings#index'
+    end
   end
 end
