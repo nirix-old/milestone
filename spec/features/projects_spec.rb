@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
-  before :all do
+  before :each do
     @project = create(:project, name: "Groot")
   end
 

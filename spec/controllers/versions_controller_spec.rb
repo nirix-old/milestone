@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe VersionsController, type: :controller do
-  before :all do
+  before :each do
     @project = create(:project)
   end
 
