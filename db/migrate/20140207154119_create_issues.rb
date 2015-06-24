@@ -10,7 +10,7 @@ class CreateIssues < ActiveRecord::Migration
       t.integer :type_id
       t.integer :version_id
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

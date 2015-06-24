@@ -7,7 +7,7 @@ class CreateVersions < ActiveRecord::Migration
       t.integer :project_id
       t.integer :status
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

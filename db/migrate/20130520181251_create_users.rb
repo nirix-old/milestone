@@ -5,9 +5,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.string :name
       t.string :email
-      t.integer :group_id, null: false, default: 2
+      t.integer :usergroup_id, null: false, default: 2
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

@@ -3,7 +3,8 @@ class CreateSettings < ActiveRecord::Migration
     create_table :settings do |t|
       t.string :name
       t.text :value
-      t.datetime :updated_at
+
+      t.timestamps null: false
     end
   end
 end
