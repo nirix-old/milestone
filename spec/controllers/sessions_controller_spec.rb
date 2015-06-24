@@ -1,14 +1,15 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe SessionsController do
+RSpec.describe SessionsController, type: :controller do
   it 'should log user in' do
-    user = FactoryGirl.create(:user, password: 'password123', password_confirmation: 'password123')
-    post :create, user: { username: user.username, password: 'password123' }
-    response.should redirect_to(root_path)
+    user = create(:user, password: 'password123', password_confirmation: 'password123')
+    puts user.to_json
+    post :create, username: user.username, password: 'password123'
+    expect(response).to redirect_to root_path
   end
 
   it 'should not log user in' do
     post :create
-    response.should render_template :new
+    expect(response).to render_template :new
   end
 end
