@@ -1,22 +1,38 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ProjectSettings::VersionsController do
-  before :all do
-    @version = FactoryGirl.create :version
+RSpec.describe ProjectSettings::VersionsController, type: :controller do
+  before :each do
+    @project = create(:project)
   end
 
-  it "should list versions" do
-    get :index, project_slug: @version.project.slug
-    response.should render_template(:index)
+  it "renders index" do
+    get :index, project_slug: @project.slug
+    expect(response).to render_template 'project_settings/versions/index'
   end
 
-  it "should display new version form" do
-    get :new, project_slug: @version.project.slug
-    response.should render_template(:new)
+  it "renders new version form" do
+    get :new, project_slug: @project.slug
+    expect(response).to render_template 'project_settings/versions/new'
   end
 
-  it "should display edit version form" do
-    get :edit, project_slug: @version.project.slug, id: @version.id
-    response.should render_template(:edit)
+  it "creates a new version" do
+    post :create, project_slug: @project.slug, version: {
+      name: "1.0.0",
+      slug: "1.0.0",
+      description: "Much fixes, very wow",
+      status: 1
+    }
+
+    expect(response).to redirect_to project_settings_versions_path
+  end
+
+  it "renders edit version form" do
+    get :edit, project_slug: @project.slug, id: @project.versions.first.id
+    expect(response).to render_template 'edit'
+  end
+
+  it "saves the version" do
+    post :update, project_slug: @project.slug, id: @project.versions.first.id, version: @project.versions.first.attributes
+    expect(response).to redirect_to project_settings_versions_path
   end
 end

@@ -1,7 +1,7 @@
 <div class="project_settings settings container">
     <h1 class="page-header"><%= t :project_settings %></h1>
 
-    <%= form_for @project, html: { path: project_project_settings_root_path, class: 'form-horizontal' } do |f| %>
+    <%= form_for @project, html: { path: project_settings_root_path, class: 'form-horizontal' } do |f| %>
         <%= render 'admin/projects/form', f: f %>
     <% end %>
 </div>

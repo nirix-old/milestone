@@ -26,8 +26,10 @@ Rails.application.routes.draw do
               format: /json/,
               only: [:index, :show]
 
-    namespace :project_settings, path: 'settings' do
+    namespace :project_settings, path: 'settings', as: :settings do
       root 'settings#index'
+
+      resources :versions
     end
   end
 end
