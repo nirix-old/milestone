@@ -1,5 +1,5 @@
 test:
-  adapter: <%= RUBY_PLATFORM == 'java' ? 'mysql' : 'mysql2' %>
-  database: milestone_test
-  username: root
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres

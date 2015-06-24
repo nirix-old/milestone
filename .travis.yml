@@ -4,5 +4,5 @@ rvm:
 
 before_script:
   - mysql -e 'create database milestone_test;'
-  - mv 'config/database.travis.yml' 'config/database.yml'
-  - mv 'config/secrets.travis.yml' 'config/secrets.yml'
+  - psql -c 'create database milestone_test' -U postgres
+  - cp config/database.yml.travis config/database.yml
