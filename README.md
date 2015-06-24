@@ -5,6 +5,7 @@ Milestone is a multi-project manager and issue tracker powered the Ruby on Rails
 
 [![Build Status](https://travis-ci.org/nirix/milestone.png?branch=master)](https://travis-ci.org/nirix/milestone)
 [![Code Climate](https://codeclimate.com/github/nirix/milestone.png)](https://codeclimate.com/github/nirix/milestone)
+[![Test Coverage](https://codeclimate.com/github/nirix/milestone/badges/coverage.svg)](https://codeclimate.com/github/nirix/milestone/coverage)
 
 License
 -------
