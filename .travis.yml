@@ -1,10 +1,8 @@
 language: ruby
 rvm:
-  - 2.1.1
-  - rbx-2.2.6
-  - jruby-1.7.11
+  - 2.2.2
 
 before_script:
   - mysql -e 'create database milestone_test;'
   - mv 'config/database.travis.yml' 'config/database.yml'
-  - mv 'config/initializers/secret_token.travis.rb' 'config/initializers/secret_token.rb'
+  - mv 'config/secrets.travis.yml' 'config/secrets.yml'
