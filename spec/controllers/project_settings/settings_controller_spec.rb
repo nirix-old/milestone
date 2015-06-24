@@ -1,9 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ProjectSettings::SettingsController do
-  it "should display settings form" do
-    project = FactoryGirl.create :project
+RSpec.describe ProjectSettings::SettingsController, type: :controller do
+  it "renders index" do
+    project = create(:project)
     get :index, project_slug: project.slug
-    response.should render_template(:index)
+    expect(response).to render_template 'project_settings/settings/index'
   end
 end

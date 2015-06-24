@@ -1,41 +1,5 @@
-#
-# Milestone
-# Copyright (C) 2012-2014 J. Polgar
-# https://github.com/nirix
-#
-# Milestone is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; version 3 only.
-#
-# Milestone is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Milestone. If not, see <http://www.gnu.org/licenses/>.
-#
-
 class ProjectSettings::SettingsController < ProjectSettings::ApplicationController
   def index
-    @project = Project.find current_project.id
+    @project = Project.find_by(slug: current_project.slug)
   end
-
-  def save
-    @project = Project.find current_project.id
-    @project.update project_params
-
-    if @project.save
-      flash[:success] = t :project_settings_updated
-      redirect_to project_settings_path
-    else
-      render :index
-    end
-  end
-
-  private
-
-    def project_params
-      params.require(:project).permit :name, :slug, :info
-    end
 end
