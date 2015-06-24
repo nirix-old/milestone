@@ -1,14 +1,14 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ProjectsController do
-  it "should list projects" do
+RSpec.describe ProjectsController, type: :controller do
+  it "should render index" do
     get :index
-    response.should render_template(:index)
+    expect(response).to render_template :index
   end
 
-  it "should display project information" do
-    FactoryGirl.create :project, slug: 'bazinga'
-    get :show, slug: 'bazinga'
-    response.should render_template(:show)
+  it "should render show" do
+    create(:project, name: 'Groot')
+    get :show, slug: 'groot'
+    expect(response).to render_template :show
   end
 end
