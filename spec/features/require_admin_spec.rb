@@ -9,10 +9,7 @@ RSpec.feature "RequireAdmins", type: :feature do
   it "should deny regular users" do
     user = create(:user, password: "IamGROOT")
 
-    visit login_path
-    fill_in 'Username', with: user.username
-    fill_in 'Password', with: 'IamGROOT'
-    click_button 'Login'
+    login user.username, 'IamGROOT'
 
     visit admin_root_path
     expect(page).to_not have_text "Login"
@@ -20,12 +17,9 @@ RSpec.feature "RequireAdmins", type: :feature do
   end
 
   it "should allow admins" do
-    user = create(:admin, password: "IamGROOT")
+    user = create(:admin, password: "WeAreGroot")
 
-    visit login_path
-    fill_in 'Username', with: user.username
-    fill_in 'Password', with: 'IamGROOT'
-    click_button 'Login'
+    login user.username, 'WeAreGroot'
 
     visit admin_root_path
     expect(page).to_not have_text "Login"
