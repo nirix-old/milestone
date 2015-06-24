@@ -13,14 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20140207154304) do
 
-  create_table "groups", force: true do |t|
-    t.string   "name"
-    t.boolean  "is_admin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-  create_table "issues", force: true do |t|
+  create_table "issues", force: :cascade do |t|
     t.string   "summary"
     t.text     "description"
     t.integer  "user_id"
@@ -29,42 +25,50 @@ ActiveRecord::Schema.define(version: 20140207154304) do
     t.boolean  "is_closed"
     t.integer  "type_id"
     t.integer  "version_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "projects", force: true do |t|
+  create_table "projects", force: :cascade do |t|
     t.string   "name"
-    t.string   "slug"
-    t.text     "info"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "slug",        null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "settings", force: true do |t|
+  create_table "settings", force: :cascade do |t|
     t.string   "name"
     t.text     "value"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: true do |t|
+  create_table "usergroups", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "is_admin",   default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
     t.string   "name"
     t.string   "email"
-    t.integer  "group_id",        default: 2, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "usergroup_id",    default: 2, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
-  create_table "versions", force: true do |t|
+  create_table "versions", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.text     "description"
     t.integer  "project_id"
     t.integer  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
