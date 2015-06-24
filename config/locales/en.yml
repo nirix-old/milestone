@@ -25,3 +25,7 @@ en:
   save: Save
   edit: Edit
   delete: Delete
+
+  active: Active
+  completed: Completed
+  cancelled: Cancelled
