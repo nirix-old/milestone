@@ -1,0 +1,9 @@
+en:
+  login: Login
+  logout: Logout
+  register: Register
+  create_account: "Create Account"
+  usercp: UserCP
+
+  username: Username
+  password: Password

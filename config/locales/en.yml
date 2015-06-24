@@ -1,53 +1,27 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  copyright: "Powered by Milestone, &copy; 2013"
   confirm: Confirm
-  projects: Projects
-  edit: Edit
-  delete: Delete
-
-  # Users
-  login: Login
-  logout: Logout
-  register: Register
-  username: Username
-  name: Name
-  password: Password
-  confirm_password: "Confirm password"
-
-  # Forms
-  create_account: "Create Account"
   create: Create
   save: Save
-
-  # Flash messages
-  account_created: "Account created, you may now login"
-  project_settings_updated: "Successfully updated project settings"
-
-  # Admin
-  admincp: AdminCP
-  new_project: "New Project"
-
-  # Flash messages
-  you_are_now_logged_out: "You are now logged out"
-  version_saved: "Version saved"
-
-  # Confirmations
-  confirm:
-    delete_x: "Are you sure you want you delete %{name}?"
-
-  # Errors
-  please_correct_the_following_errors: "Please correct the following errors"
-  errors:
-    invalid_username_or_password: "Invalid username and/or password"
-    no_permission:
-      title: "Access denied"
-      message: "You don't have permission to access this page."
-
-  # ActiveRecord
-  activerecord:
-    attributes:
-      user:
-        password_digest: Password
+  edit: Edit
+  delete: Delete
