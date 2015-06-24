@@ -14,4 +14,10 @@ RSpec.describe VersionsHelper, type: :helper do
       expect(helper.version_status(-1)).to eq("Cancelled")
     end
   end
+
+  describe "version_status_options" do
+    it "should return array" do
+      expect(helper.version_status_options).to be_a(Array)
+    end
+  end
 end
