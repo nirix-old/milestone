@@ -1,13 +1,13 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe User do
-  it "should return true for is_admin?" do
-    user = FactoryGirl.create(:admin)
-    user.is_admin?.should == true
+RSpec.describe User, type: :model do
+  it "should not be an admin" do
+    user = create(:user)
+    expect(user.is_admin?).to eq(false)
   end
 
-  it "should return false for is_admin?" do
-    user = FactoryGirl.create(:user)
-    user.is_admin?.should == false
+  it "should be an admin" do
+    admin = create(:admin)
+    expect(admin.is_admin?).to eq(true)
   end
 end
