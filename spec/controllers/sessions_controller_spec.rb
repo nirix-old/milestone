@@ -11,4 +11,9 @@ RSpec.describe SessionsController, type: :controller do
     post :create
     expect(response).to render_template :new
   end
+
+  it 'should log user out' do
+    delete :destroy
+    expect(response).to redirect_to root_path
+  end
 end
