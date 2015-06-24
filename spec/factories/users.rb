@@ -3,7 +3,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "User #{n}" }
     sequence(:username) { |n| "user_#{n}" }
     password "some_user"
-    email { "#{name}.#{username}@example.com".downcase }
+    email { "#{username}@example.com".downcase }
 
     association :usergroup
   end
@@ -12,7 +12,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "Admin #{n}" }
     sequence(:username) { |n| "admin_#{n}" }
     password "some_admin"
-    email { "#{name}.#{username}@example.com".downcase }
+    email { "#{username}@example.com".downcase }
 
     association :usergroup, is_admin: true
   end
