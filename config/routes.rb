@@ -1,28 +1,22 @@
-Milestone::Application.routes.draw do
-  get  '/register', to: 'users#new', as: :register
-  post '/register', to: 'users#create'
+Rails.application.routes.draw do
+  get 'issues/index'
 
-  get  '/login', to: 'sessions#new', as: :login
+  root 'projects#index'
+
+  resources :users
+  get '/register', to: 'users#new'
+
+  get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-
-  delete '/logout', to: 'sessions#destroy', as: :logout
+  delete '/logout', to: 'sessions#destroy'
 
   namespace :admin do
-    get '/', to: 'dashboard#index'
-    get '/settings', to: 'settings#index', as: :settings
-    post '/settings', to: 'settings#save'
+    root 'dashboard#index'
 
     resources :projects
   end
 
-  resources :projects, only: :show, path: '', param: :slug do
-    namespace :project_settings, path: :settings, as: :settings do
-      get '/', to: 'settings#index'
-      patch '/', to: 'settings#save'
-
-      resources :versions
-    end
-
+  resources :projects, only: [:show], path: '', param: :slug do
     resources :issues
     resources :versions,
               path: 'roadmap',
@@ -31,6 +25,4 @@ Milestone::Application.routes.draw do
               format: /json/,
               only: [:index, :show]
   end
-
-  root to: 'projects#index'
 end
