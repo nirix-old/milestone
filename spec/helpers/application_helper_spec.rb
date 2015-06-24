@@ -18,4 +18,21 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(helper.error_messages_panel_for(project)).to include("panel panel-danger")
     end
   end
+
+  describe "#flash_messages" do
+    it "should be successful" do
+      flash[:success] = "Did something successfully"
+      expect(helper.flash_messages).to include("Did something successfully")
+    end
+
+    it "should warn" do
+      flash[:warning] = "I warned you"
+      expect(helper.flash_messages).to include("I warned you")
+    end
+
+    it "should show danger" do
+      flash[:danger] = "You are terminated"
+      expect(helper.flash_messages).to include("You are terminated")
+    end
+  end
 end
