@@ -1,12 +1,10 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Admin::SettingsController do
+RSpec.describe Admin::SettingsController, type: :controller do
+  it "renders index" do
+    allow(controller).to receive(:current_user).and_return(create(:admin))
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
-    end
+    get :index
+    expect(response).to render_template 'admin/settings/index'
   end
-
 end
