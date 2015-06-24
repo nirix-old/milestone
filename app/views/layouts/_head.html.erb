@@ -1,3 +1,4 @@
-<title>Milestone</title>
-<%= stylesheet_link_tag "application", media: "all" %>
+<title><%= setting(:title) %></title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', media: 'all' %>
 <%= csrf_meta_tags %>
