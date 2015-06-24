@@ -1,7 +1,8 @@
 language: ruby
 rvm:
   - 2.2.2
-
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate spec
 before_script:
   - mysql -e 'create database milestone_test;'
   - psql -c 'create database milestone_test' -U postgres
