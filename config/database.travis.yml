@@ -1,5 +1,14 @@
-test:
+postgresql: &postgresql
   adapter: postgresql
   encoding: unicode
   pool: 5
   username: postgres
+
+mysql: &mysql
+  adapter: mysql2
+  username: travis
+  encoding: utf8
+
+test:
+  <<: *<%= ENV['DB'] || "postgresql" %>
+  database: milestone_test

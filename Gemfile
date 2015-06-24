@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.2'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', group: :postgresql
+gem 'mysql2', group: :mysql
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

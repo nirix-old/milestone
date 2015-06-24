@@ -6,7 +6,7 @@ current_dir = File.dirname(__FILE__)
 
 require "#{current_dir}/helpers"
 
-if RUBY_ENGINE == "ruby"
+if RUBY_ENGINE == "ruby" && ENV['DB'] == "postgresql"
   require "codeclimate-test-reporter"
   CodeClimate::TestReporter.start
 end
