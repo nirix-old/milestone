@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'dashboard#index'
+    get '/settings', to: 'settings#index'
 
     resources :projects
   end
