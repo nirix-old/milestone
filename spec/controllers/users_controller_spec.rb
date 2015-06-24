@@ -1,28 +1,28 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe UsersController do
-  it "should register Spock" do
-    user_data = {
-      name:     'Spock',
-      username: 'logical',
-      email:    'spock@uss-enterprise.space',
-      password: 'thisisillogicalcaptain',
-      password_confirmation: 'thisisillogicalcaptain'
-    }
-    post :create, user: user_data
-    response.should redirect_to(login_path)
+RSpec.describe UsersController, type: :controller do
+  it 'should render login from' do
+    get :new
+    expect(response).to render_template 'users/new'
   end
 
-  it "should not register empty form" do
-    user_data = {
-      name:     '',
-      username: '',
-      email:    '',
-      password: '',
-      password_confirmation: ''
+  it 'should create user' do
+    post :create, user: {
+      name: "I am Groot",
+      username: "i_am_groot",
+      password: "we_are_groot",
+      password_confirmation: "we_are_groot",
+      email: "i_am_groot@example.com"
     }
 
-    post :create, user: user_data
-    response.should render_template("users/new")
+    expect(response).to redirect_to login_path
+  end
+
+  it 'should not create user' do
+    post :create, user: {
+      password_confirmation: "we_are_not_groot",
+    }
+
+    expect(response).to render_template 'users/new'
   end
 end
