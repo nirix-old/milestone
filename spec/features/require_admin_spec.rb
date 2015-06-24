@@ -17,9 +17,7 @@ RSpec.feature "RequireAdmins", type: :feature do
   end
 
   it "should allow admins" do
-    user = create(:admin, password: "WeAreGroot")
-
-    login user.username, 'WeAreGroot'
+    create_admin_and_login
 
     visit admin_root_path
     expect(page).to_not have_text "Login"
