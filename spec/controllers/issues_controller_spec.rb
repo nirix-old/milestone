@@ -1,9 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe IssuesController do
+RSpec.describe IssuesController, type: :controller do
   it "should list issues" do
-    project = FactoryGirl.create :project
+    project = create(:project)
     get :index, project_slug: project.slug
-    response.should render_template(:index)
+    expect(response).to render_template :index
   end
 end
