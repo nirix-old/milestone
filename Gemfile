@@ -4,9 +4,16 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 
-# Use postgresql as the database for Active Record
-gem 'pg', group: :postgresql
-gem 'mysql2', group: :mysql
+# Database
+platforms :mri, :rbx do
+  gem 'pg', group: :postgresql
+  gem 'mysql2', group: :mysql
+end
+
+platforms :jruby do
+  gem 'activerecord-jdbcpostgresql-adapter', group: :postgresql
+  gem 'activerecord-jdbcmysql-adapter', group: :mysql
+end
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -48,7 +55,7 @@ group :development, :test do
   gem 'byebug', platforms: :mri
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.0', platforms: [:mri, :rbx]
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -60,5 +67,5 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.4.1'
 
   # Code Climate
-  gem "codeclimate-test-reporter", require: false
+  gem "codeclimate-test-reporter", require: false, platforms: :mri
 end
