@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'issues/index'
-
   root 'projects#index'
 
   resources :users

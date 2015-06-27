@@ -1,22 +1,26 @@
-#
-# Milestone
-# Copyright (C) 2012-2014 J. Polgar
-# https://github.com/nirix
-#
-# Milestone is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; version 3 only.
-#
-# Milestone is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Milestone. If not, see <http://www.gnu.org/licenses/>.
-#
-
 class IssuesController < ApplicationController
   def index
+    @issues = current_project.issues.all
   end
+
+  def new
+    @issue = current_project.issues.new
+  end
+
+  def create
+    @issue = current_project.issues.new issue_params
+    @issue.user = current_user
+
+    if @issue.save
+      redirect_to project_issue_path(current_project.slug, @issue.id)
+    else
+      render :new
+    end
+  end
+
+  private
+
+    def issue_params
+      params.require(:issue).permit(:summary, :description, :version_id)
+    end
 end
