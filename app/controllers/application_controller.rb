@@ -74,7 +74,7 @@ class ApplicationController < ActionController::Base
     end
 
     def get_project
-      slug = params[:project_slug] || params[:slug]
+      slug = params[:project_id] || params[:id]
       if project = Project.find_by(slug: slug)
         @current_project = project
       end

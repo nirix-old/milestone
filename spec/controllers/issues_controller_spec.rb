@@ -6,12 +6,12 @@ RSpec.describe IssuesController, type: :controller do
   end
 
   it "should list issues" do
-    get :index, project_slug: @project.slug
+    get :index, project_id: @project.slug
     expect(response).to render_template :index
   end
 
   it "should render new issue form" do
-    get :new, project_slug: @project.slug
+    get :new, project_id: @project.slug
     expect(response).to render_template :new
   end
 
@@ -20,7 +20,7 @@ RSpec.describe IssuesController, type: :controller do
 
     version = create(:version)
 
-    post :create, project_slug: @project.slug, issue: {
+    post :create, project_id: @project.slug, issue: {
       summary: "Test issue",
       description: "Testing 123",
       version_id: version.id
@@ -30,19 +30,19 @@ RSpec.describe IssuesController, type: :controller do
   end
 
   it "should not create issue" do
-    post :create, project_slug: @project.slug, issue: { summary: "don't do it" }
+    post :create, project_id: @project.slug, issue: { summary: "don't do it" }
 
     expect(response).to render_template :new
   end
 
   it "should show issue" do
     issue = create(:issue)
-    get :show, project_slug: issue.project.slug, id: issue.id
+    get :show, project_id: issue.project.slug, id: issue.id
     expect(response).to render_template :show
   end
 
   it "should render 404" do
-    get :show, project_slug: @project.slug, id: 9999999
+    get :show, project_id: @project.slug, id: 9999999
     expect(response).to render_template 'errors/404'
   end
 end

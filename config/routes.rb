@@ -16,12 +16,11 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :projects, only: [:show], path: '', param: :slug do
+  resources :projects, only: [:show], path: '' do
     resources :issues
     resources :versions,
               path: 'roadmap',
-              param: :slug,
-              slug: /[a-zA-Z0-9\-\._]+?/,
+              id: /[a-zA-Z0-9\-\._]+?/,
               format: /json/,
               only: [:index, :show]
 

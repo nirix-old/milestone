@@ -11,7 +11,7 @@ RSpec.feature "Projects", type: :feature do
   end
 
   it 'should show project' do
-    visit project_path(@project.slug)
+    visit project_path(@project)
     expect(page).to have_text 'I am Groot'
   end
 end

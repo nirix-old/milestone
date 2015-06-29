@@ -8,7 +8,7 @@ RSpec.describe ProjectsController, type: :controller do
 
   it "should render show" do
     create(:project, name: 'Groot')
-    get :show, slug: 'groot'
+    get :show, id: 'groot'
     expect(response).to render_template :show
   end
 end
