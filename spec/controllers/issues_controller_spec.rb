@@ -34,4 +34,15 @@ RSpec.describe IssuesController, type: :controller do
 
     expect(response).to render_template :new
   end
+
+  it "should show issue" do
+    issue = create(:issue)
+    get :show, project_slug: issue.project.slug, id: issue.id
+    expect(response).to render_template :show
+  end
+
+  it "should render 404" do
+    get :show, project_slug: @project.slug, id: 9999999
+    expect(response).to render_template 'errors/404'
+  end
 end

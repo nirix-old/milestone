@@ -33,6 +33,14 @@ class IssuesController < ApplicationController
     end
   end
 
+  def show
+    begin
+      @issue = current_project.issues.find params[:id]
+    rescue
+      return render_404 if not @issue
+    end
+  end
+
   private
 
     def issue_params

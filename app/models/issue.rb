@@ -4,6 +4,7 @@ class Issue < ActiveRecord::Base
 
   belongs_to :project
   belongs_to :user
+  belongs_to :version
 
   scope :open,   -> { where(is_closed: false) }
   scope :closed, -> { where(is_closed: true) }

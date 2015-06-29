@@ -1,0 +1,12 @@
+<div class="issue container">
+  <div class="issue">
+    <h1 class="page-header">#<%= @issue.id %>: <%= @issue.summary %></h1>
+    <dl class="issue-properties">
+      <dt><%= t :version %></dt>
+      <dd><%= @issue.version.name %></dd>
+    </dl>
+    <div class="issue-description">
+      <%= markdown @issue.description %>
+    </div>
+  </div>
+</div>
