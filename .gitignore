@@ -13,4 +13,6 @@
 /tmp
 
 # Misc
+coverage/
 .DS_Store
+*.swp
