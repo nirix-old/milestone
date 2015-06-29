@@ -1,0 +1,17 @@
+<div class="admin edit issue-type container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="page-header"><%= t :edit_issue_type %></h1>
+
+      <%= error_messages_for @type %>
+
+      <%= form_for [:admin, @type], html: { class: 'form-horizontal' } do |f| %>
+        <%= render 'form', f: f %>
+
+        <div class="form-actions">
+          <%= f.submit t(:create), class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+ </div>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     resources :projects
     resources :users
+    resources :issue_types
   end
 
   resources :projects, only: [:show], path: '' do
