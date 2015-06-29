@@ -15,6 +15,7 @@
 
 class VersionsController < ApplicationController
   def index
+    @versions = current_project.versions.all
   end
 
   def show
