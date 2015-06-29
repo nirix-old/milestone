@@ -33,11 +33,11 @@ class Admin::ProjectsController < Admin::ApplicationController
   end
 
   def edit
-    @project = Project.find params[:id]
+    @project = Project.find_by slug: params[:id]
   end
 
   def update
-    @project = Project.find params[:id]
+    @project = Project.find_by slug: params[:id]
     @project.update_attributes project_params
 
     if @project.save
