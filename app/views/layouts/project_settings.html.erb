@@ -18,8 +18,8 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to t(:settings), project_settings_root_path %></li>
-            <li><%= link_to t(:versions), project_settings_versions_path %></li>
+            <li<%= active_nav '/(.*)/settings' %>><%= link_to t(:settings), project_settings_root_path %></li>
+            <li<%= active_nav '/(.*)/versions(/.*)?' %>><%= link_to t(:versions), project_settings_versions_path %></li>
           </ul>
         </div>
       </div>
