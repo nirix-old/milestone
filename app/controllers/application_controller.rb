@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
       pattern = Regexp.new "^#{pattern}$"
     end
 
-    !(request.path_info =~ pattern).nil?
+    pattern.match request.path_info
   end
   helper_method :request_matches
 

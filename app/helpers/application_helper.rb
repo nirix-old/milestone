@@ -38,4 +38,12 @@ module ApplicationHelper
 
     render 'layouts/flash_messages', messages: messages
   end
+
+  def active_nav(pattern)
+    if request_matches(pattern)
+      raw ' class="active"'
+    else
+      ''
+    end
+  end
 end
