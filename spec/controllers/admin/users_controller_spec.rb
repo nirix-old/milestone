@@ -46,4 +46,15 @@ RSpec.describe Admin::UsersController, type: :controller do
 
     expect(response).to redirect_to admin_users_path
   end
+
+  it "should not create user" do
+    post :create, user: { username: 'nobody' }
+    expect(response).to render_template :new
+  end
+
+  it "should not update user" do
+    user = create(:user)
+    post :update, id: user.id, user: { username: '' }
+    expect(response).to render_template :edit
+  end
 end
