@@ -28,4 +28,10 @@ RSpec.describe IssuesController, type: :controller do
 
     expect(response).to redirect_to project_issue_path(Issue.last.project.slug, Issue.last)
   end
+
+  it "should not create issue" do
+    post :create, project_slug: @project.slug, issue: { summary: "don't do it" }
+
+    expect(response).to render_template :new
+  end
 end
