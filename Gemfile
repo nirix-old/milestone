@@ -46,8 +46,8 @@ gem 'uglifier', '>= 1.3.0'
 
 # Development
 group :development do
-  gem 'guard'
-  gem 'guard-rspec', require: false
+  gem 'guard', '~> 2.12.7'
+  gem 'guard-rspec', '~> 4.6.0', require: false
 end
 
 group :development, :test do
