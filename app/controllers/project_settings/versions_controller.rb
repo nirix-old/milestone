@@ -33,11 +33,11 @@ class ProjectSettings::VersionsController < ProjectSettings::ApplicationControll
   end
 
   def edit
-    @version = current_project.versions.find(params[:id])
+    @version = current_project.versions.find_by slug: params[:id]
   end
 
   def update
-    @version = current_project.versions.find(params[:id])
+    @version = current_project.versions.find_by slug: params[:id]
     @version.update_attributes version_params
 
     if @version.save
