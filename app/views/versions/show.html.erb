@@ -1,5 +1,5 @@
 <div class="roadmap version container">
     <h1 class="page-header"><%= @version.name %></h1>
-
-    <%= @version.description %>
+    <%= render 'progress_bar', version: @version %>
+    <%= markdown @version.description %>
 </div>

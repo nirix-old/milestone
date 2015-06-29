@@ -19,6 +19,6 @@ class VersionsController < ApplicationController
   end
 
   def show
-    @version = Version.find_by(slug: params[:slug])
+    @version = Version.find_by(slug: params[:id])
   end
 end

@@ -12,12 +12,12 @@
   </div>
   <dl>
     <dt><%= t :open_issues %></dt>
-    <dd><%= link_to milestone.issues.open.count, '#' %></dd>
+    <dd><%= link_to version.issues.open.count, '#' %></dd>
 
     <dt><%= t :closed_issues %></dt>
-    <dd><%= link_to milestone.issues.closed.count, '#' %></dd>
+    <dd><%= link_to version.issues.closed.count, '#' %></dd>
 
     <dt><%= t :total %></dt>
-    <dd><%= link_to milestone.issues.count, project_issues_path(current_project.slug, version: milestone.slug) %></dd>
+    <dd><%= link_to version.issues.count, project_issues_path(current_project, version) %></dd>
   </dl>
 </div>
