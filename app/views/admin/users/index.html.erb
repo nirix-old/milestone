@@ -1,0 +1,22 @@
+<div class="admin users container">
+  <div class="pull-right">
+    <%= link_to t(:new_user), new_admin_user_path, class: 'btn btn-success' %>
+  </div>
+
+  <h1 class="page-header"><%= t :users %></h1>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <th><%= t :username %></th>
+      <th><%= t :usergroup %></th>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, edit_admin_user_path(user) %></td>
+        <td><%= user.usergroup.name %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

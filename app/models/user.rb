@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: { case_sensitive: false }, length: { minimum: 4 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 8 }
+  # validates :password, length: { minimum: 8 }
 
   belongs_to :usergroup
 

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/settings', to: 'settings#index'
 
     resources :projects
+    resources :users
   end
 
   resources :projects, only: [:show], path: '', param: :slug do
