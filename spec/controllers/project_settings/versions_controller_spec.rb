@@ -32,19 +32,19 @@ RSpec.describe ProjectSettings::VersionsController, type: :controller do
   end
 
   it "renders edit version form" do
-    get :edit, project_id: @project.slug, id: @project.versions.first.id
+    get :edit, project_id: @project.slug, id: @project.versions.first.slug
     expect(response).to render_template 'edit'
   end
 
   it "saves the version" do
-    post :update, project_id: @project.slug, id: @project.versions.first.id,
+    post :update, project_id: @project.slug, id: @project.versions.first.slug,
       version: @project.versions.first.attributes
 
     expect(response).to redirect_to project_settings_versions_path
   end
 
   it "should not save version" do
-    post :update, project_id: @project.slug, id: @project.versions.first.id,
+    post :update, project_id: @project.slug, id: @project.versions.first.slug,
       version: { name: "" }
 
     expect(response).to render_template :edit
