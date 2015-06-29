@@ -83,4 +83,8 @@ class ApplicationController < ActionController::Base
     def render_no_permission
       render 'errors/no_permission'
     end
+
+    def render_404
+      render 'errors/404'
+    end
 end
