@@ -1,0 +1,29 @@
+<div class="admin issue-statuses container">
+  <div class="pull-right">
+    <%= link_to fa('plus', t(:new_issue_status)), new_admin_issue_status_path, class: 'btn btn-success' %>
+  </div>
+
+  <h1 class="page-header"><%= t :issue_statuses %></h1>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <th><%= t :name %></th>
+      <th><%= t :is_closed %></th>
+      <th></th>
+    </thead>
+    <tbody>
+    <% @statuses.each do |status| %>
+      <tr>
+        <td><%= link_to status.name, edit_admin_issue_status_path(status) %></td>
+        <td><%= status.is_closed? ? t(:yes) : t(:no) %></td>
+        <td>
+          <div class="text-right">
+            <%= link_to fa(:pencil, t(:edit)), edit_admin_issue_status_path(status), class: 'btn btn-warning btn-xs' %>
+            <%= link_to fa(:trash, t(:delete)), admin_issue_status_path(status), class: 'btn btn-danger btn-xs', method: :delete %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

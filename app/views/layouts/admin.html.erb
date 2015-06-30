@@ -21,6 +21,7 @@
             <li<%= active_nav '/admin/settings' %>><%= link_to t(:settings), '#' %></li>
             <li<%= active_nav '/admin/projects(/.*)?' %>><%= link_to t(:projects), admin_projects_path %></li>
             <li<%= active_nav '/admin/issue_types(/.*)?' %>><%= link_to t(:issue_types), admin_issue_types_path %></li>
+            <li<%= active_nav '/admin/issue_statuses(/.*)?' %>><%= link_to t(:issue_statuses), admin_issue_statuses_path %></li>
             <li<%= active_nav '/admin/users(/.*)?' %>><%= link_to t(:users), admin_users_path %></li>
           </ul>
         </div>
