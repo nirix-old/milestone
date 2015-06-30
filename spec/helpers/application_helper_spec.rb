@@ -35,4 +35,16 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(helper.flash_messages).to include("You are terminated")
     end
   end
+
+  describe '#active_nav' do
+    it 'should be active' do
+      helper.request.path_info = '/test/roadmap'
+      expect(helper.active_nav('/(.*)/roadmap')).to eq ' class="active"'
+    end
+
+    it 'should not be active' do
+      helper.request.path_info = '/test/roadmap'
+      expect(helper.active_nav('/(.*)/issues')).to eq ''
+    end
+  end
 end
