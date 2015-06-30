@@ -44,6 +44,12 @@ class IssuesController < ApplicationController
   private
 
     def issue_params
-      params.require(:issue).permit(:summary, :description, :version_id)
+      params.require(:issue).permit([
+        :summary,
+        :description,
+        :version_id,
+        :type_id,
+        :status_id
+      ])
     end
 end

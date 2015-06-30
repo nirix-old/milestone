@@ -25,6 +25,20 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <%= f.label :type_id, class: 'control-label col-md-3' %>
+            <div class="col-md-9">
+                <%= f.collection_select :type_id, IssueType.all, :id, :name, {}, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :status_id, class: 'control-label col-md-3' %>
+            <div class="col-md-9">
+                <%= f.collection_select :status_id, IssueStatus.all, :id, :name, {}, class: 'form-control' %>
+            </div>
+        </div>
+
         <div class="form-actions">
             <%= f.submit t(:create), class: 'btn btn-success' %>
         </div>

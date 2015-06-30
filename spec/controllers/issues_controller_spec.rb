@@ -19,11 +19,15 @@ RSpec.describe IssuesController, type: :controller do
     allow(controller).to receive(:current_user).and_return(create(:user))
 
     version = create(:version)
+    type = create(:issue_type)
+    status = create(:issue_status)
 
     post :create, project_id: @project.slug, issue: {
       summary: "Test issue",
       description: "Testing 123",
-      version_id: version.id
+      version_id: version.id,
+      type_id: type.id,
+      status_id: status.id
     }
 
     expect(response).to redirect_to project_issue_path(Issue.last.project.slug, Issue.last)

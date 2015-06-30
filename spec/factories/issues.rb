@@ -5,5 +5,7 @@ FactoryGirl.define do
 
     association :project
     association :version
+    association :type, factory: :issue_type
+    association :status, factory: :issue_status
   end
 end
