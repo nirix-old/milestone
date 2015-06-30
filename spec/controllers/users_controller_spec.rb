@@ -1,9 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  it 'should render login from' do
+  it 'should render registration from' do
     get :new
     expect(response).to render_template 'users/new'
+  end
+
+  it 'should not render registration form' do
+    allow(controller).to receive(:current_user).and_return(create(:user))
+
+    get :new
+    expect(response).to redirect_to root_path
   end
 
   it 'should create user' do
