@@ -39,6 +39,14 @@ module ApplicationHelper
     render 'layouts/flash_messages', messages: messages
   end
 
+  def request_matches(pattern)
+    unless pattern.is_a? Regexp
+      pattern = Regexp.new "^#{pattern}$"
+    end
+
+    pattern.match request.path_info
+  end
+
   def active_nav(pattern)
     if request_matches(pattern)
       raw ' class="active"'

@@ -51,15 +51,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_project
 
-  def request_matches(pattern)
-    unless pattern.is_a? Regexp
-      pattern = Regexp.new "^#{pattern}$"
-    end
-
-    pattern.match request.path_info
-  end
-  helper_method :request_matches
-
   private
 
     def already_signed_in
